@@ -1,0 +1,42 @@
+[project]
+name = "claimdesk"
+version = "0.1.0"
+description = "Insurance claims document AI: extraction with a fine-tuned open-weight model, MLOps and canary rollout"
+requires-python = ">=3.12"
+# Runtime: what the Lambda image needs to read, extract, check and score.
+dependencies = [
+  "fastapi>=0.115",
+  "pydantic>=2.9",
+  "pydantic-settings>=2.6",
+  "openai>=1.55",
+  "boto3>=1.35",
+  "pypdf>=5.0",
+  "pillow>=11.0",
+  "pytesseract>=0.3.13",
+  "scikit-learn>=1.6",
+  "xgboost-cpu>=3.0",
+  "python-multipart>=0.0.18",
+]
+
+[dependency-groups]
+lambda = ["awslambdaric>=3.0", "mangum>=0.19"]
+# Offline ML work: rendering the corpus, experiment tracking and the model registry, GPU jobs on Modal.
+ml = ["reportlab>=4.2", "pypdfium2>=4.30", "mlflow>=3.0", "modal>=1.6"]
+dev = ["pytest>=8.3", "ruff>=0.8", "pyright>=1.1.390", "uvicorn[standard]>=0.32", "mangum>=0.19"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 150
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pyright]
+include = ["claimdesk", "tests"]
+typeCheckingMode = "standard"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

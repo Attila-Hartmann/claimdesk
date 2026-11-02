@@ -1,0 +1,33 @@
+:root {
+  --ink: #14212b;
+  --navy: #12355b;
+  --paper: #ffffff;
+  --mist: #f2f5f8;
+  --rule: #dde3e9;
+  --risk: #c2410c;
+  --ok: #2f7d4f;
+}
+
+body { background: var(--mist); color: var(--ink); font-variant-numeric: tabular-nums; }
+.mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+.bar { background: var(--navy); color: #fff; }
+.bar a { color: #c6d7ea; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-weight: 500; }
+.bar a:hover { color: #fff; background: rgba(255, 255, 255, 0.07); }
+.bar a.active { color: #fff; background: rgba(124, 196, 255, 0.18); }
+
+.demo-strip { background: #fff4d6; text-align: center; font-size: 0.85rem; padding: 6px 16px; }
+
+.doc-frame { background: #e9edf1; border-radius: 8px; overflow: auto; max-height: 78vh; border: 1px solid var(--rule); }
+.doc-frame img, .doc-frame iframe { width: 100%; display: block; border: 0; }
+.doc-frame iframe { height: 78vh; }
+
+.field-issue input, .field-issue textarea { border-color: var(--risk) !important; }
+
+.riskbar { height: 8px; border-radius: 99px; background: #e8ecf0; overflow: hidden; }
+.riskbar > span { display: block; height: 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .pulse { animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: 0.45; } }
+}

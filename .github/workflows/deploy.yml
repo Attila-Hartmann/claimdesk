@@ -1,0 +1,41 @@
+name: deploy
+
+# App deploys only (image, functions, web). Infrastructure changes go through `terraform apply` in infra/.
+# Needs repository variables: AWS_DEPLOY_ROLE_ARN, ECR_REPOSITORY, FUNCTIONS (space-separated), WEB_BUCKET, DISTRIBUTION_ID.
+on:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    if: ${{ vars.AWS_DEPLOY_ROLE_ARN != '' && (github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with: { role-to-assume: "${{ vars.AWS_DEPLOY_ROLE_ARN }}", aws-region: eu-central-1 }
+      - uses: aws-actions/amazon-ecr-login@v2
+      - name: image
+        run: |
+          IMAGE="${{ vars.ECR_REPOSITORY }}:${GITHUB_SHA::12}"
+          docker build -f api/Dockerfile -t "$IMAGE" .
+          docker push "$IMAGE"
+          for fn in ${{ vars.FUNCTIONS }}; do
+            aws lambda update-function-code --function-name "$fn" --image-uri "$IMAGE" > /dev/null
+            aws lambda wait function-updated --function-name "$fn"
+          done
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm, cache-dependency-path: web/package-lock.json }
+      - name: web
+        working-directory: web
+        run: |
+          npm ci && npm run build
+          aws s3 sync dist "s3://${{ vars.WEB_BUCKET }}" --delete
+          aws cloudfront create-invalidation --distribution-id "${{ vars.DISTRIBUTION_ID }}" --paths "/*" > /dev/null
