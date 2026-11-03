@@ -13,7 +13,7 @@ export const FIELD: Record<string, string> = {
   seller_tax_number: 'Repairer tax number', invoice_number: 'Invoice number', issue_date: 'Issued', fulfilment_date: 'Fulfilment',
   buyer_name: 'Buyer', line_items: 'Line items', net_total_huf: 'Net total', vat_rate: 'VAT %', vat_huf: 'VAT', gross_total_huf: 'Gross total',
   date: 'Date', time: 'Time', location: 'Location', vehicle_a: 'Vehicle A', vehicle_b: 'Vehicle B', circumstances_a: 'Circumstances A',
-  circumstances_b: 'Circumstances B', injuries: 'Injuries', witnesses: 'Witnesses', quantity: 'Qty', unit_price_huf: 'Unit price', net_huf: 'Net',
+  circumstances_b: 'Circumstances B', injuries: 'Injuries', witnesses: 'Witnesses', quantity: 'Qty', unit_price_huf: 'Unit price', net_huf: 'Net', insurer: 'Insurer', driver_name: 'Driver',
 };
 
 /** Human name for a model id from the router. */
@@ -21,6 +21,7 @@ export function modelName(id: string | null | undefined): string {
   if (!id) return '–';
   if (id === 'champion') return 'Frontier API';
   if (id.startsWith('claimdesk-')) return `Fine-tuned ${id.slice('claimdesk-'.length)}`;
+  if (id.startsWith('qwen3-')) return 'Base model, untuned';
   return id;
 }
 

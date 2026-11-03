@@ -86,7 +86,7 @@ function DocumentPanel({ cid, doc }: { cid: string; doc: Doc }) {
     <Grid gap="lg">
       <Grid.Col span={{ base: 12, md: 6 }}>
         <div className="doc-frame">
-          {doc.file.endsWith('.pdf') ? <iframe src={url} title={doc.name} /> : <img src={url} alt={`Scan of ${doc.name}`} />}
+          {doc.file.endsWith('.pdf') ? <iframe src={`${url}#toolbar=0&navpanes=0&view=FitH`} title={doc.name} /> : <img src={url} alt={`Scan of ${doc.name}`} />}
         </div>
         <Accordion mt="sm" variant="contained">
           <Accordion.Item value="text">

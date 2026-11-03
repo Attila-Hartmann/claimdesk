@@ -36,7 +36,7 @@ function EvalTable({ evals }: { evals: Record<string, EvalSummary> }) {
             <Table.Td ta="right">{pct(r.doc_exact)}</Table.Td>
             {GROUPS.map(([k]) => <Table.Td key={k} ta="right">{pct(r.by_group[k])}</Table.Td>)}
             <Table.Td ta="right">{Math.round(r.tokens_in_avg)}</Table.Td>
-            <Table.Td ta="right">{usd(r.gpu_cost_per_1k_docs_usd ?? r.cost_per_1k_docs_usd)}{r.gpu_cost_per_1k_docs_usd != null && <Text span size="xs" c="dimmed"> GPU</Text>}</Table.Td>
+            <Table.Td ta="right">{r.gpu_cost_per_1k_docs_usd == null && !r.cost_per_1k_docs_usd ? '–' : usd(r.gpu_cost_per_1k_docs_usd ?? r.cost_per_1k_docs_usd)}{r.gpu_cost_per_1k_docs_usd != null && <Text span size="xs" c="dimmed"> GPU</Text>}</Table.Td>
             <Table.Td ta="right">{r.p50_ms ? `${(r.p50_ms / 1000).toFixed(1)} s` : '–'}</Table.Td>
           </Table.Tr>
         ))}
