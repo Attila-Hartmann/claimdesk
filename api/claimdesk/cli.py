@@ -100,7 +100,7 @@ def main() -> None:
 
         for p in (classify.MODEL, fraud.BUNDLE):
             store.put(f"artifacts/{p.name}", p.read_bytes(), "application/octet-stream")
-        store.put_json("artifacts/evals.json", api.evals())
+        store.put_json("artifacts/evals.json", api.local_evals())
         print("published artifacts")
     elif cmd == "export":
         export(Path(args[0]) if args else ROOT / "web" / "public" / "demo")

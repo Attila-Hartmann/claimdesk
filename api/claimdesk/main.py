@@ -102,7 +102,9 @@ def set_rollout(c: Canary) -> dict:
 @app.get("/api/evals")
 def evals() -> dict:
     """Offline eval summaries: published to the store on AWS (artifacts/evals.json), read from evals/reports locally."""
-    if published := store.get_json("artifacts/evals.json"):
-        return published
+    return store.get_json("artifacts/evals.json") or local_evals()
+
+
+def local_evals() -> dict:
     reports = ROOT / "evals" / "reports"
     return {p.stem: json.loads(p.read_text(encoding="utf-8"))["summary"] for p in sorted(reports.glob("*.json"))}
