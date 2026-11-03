@@ -262,7 +262,7 @@ resource "aws_iam_role_policy" "deploy" {
     { Effect = "Allow", Action = ["ecr:GetAuthorizationToken"], Resource = "*" },
     { Effect = "Allow", Action = ["ecr:BatchCheckLayerAvailability", "ecr:InitiateLayerUpload", "ecr:UploadLayerPart", "ecr:CompleteLayerUpload",
     "ecr:PutImage", "ecr:BatchGetImage"], Resource = aws_ecr_repository.app.arn },
-    { Effect = "Allow", Action = ["lambda:UpdateFunctionCode", "lambda:GetFunction"], Resource = [aws_lambda_function.api.arn, aws_lambda_function.worker.arn] },
+    { Effect = "Allow", Action = ["lambda:UpdateFunctionCode", "lambda:GetFunction", "lambda:GetFunctionConfiguration"], Resource = [aws_lambda_function.api.arn, aws_lambda_function.worker.arn] },
     { Effect = "Allow", Action = ["s3:PutObject", "s3:DeleteObject", "s3:ListBucket"], Resource = [aws_s3_bucket.web.arn, "${aws_s3_bucket.web.arn}/*"] },
     { Effect = "Allow", Action = ["cloudfront:CreateInvalidation"], Resource = aws_cloudfront_distribution.cdn.arn },
   ] })
