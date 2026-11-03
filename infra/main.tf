@@ -122,6 +122,7 @@ resource "aws_lambda_function" "api" {
   timeout     = 30
   environment { variables = local.env }
   tracing_config { mode = "Active" }
+  lifecycle { ignore_changes = [image_uri] } # CI deploys new images; Terraform owns the rest
 }
 resource "aws_lambda_function_url" "api" {
   function_name      = aws_lambda_function.api.function_name
@@ -138,6 +139,7 @@ resource "aws_lambda_function" "worker" {
   timeout     = 300
   environment { variables = local.env }
   tracing_config { mode = "Active" }
+  lifecycle { ignore_changes = [image_uri] } # CI deploys new images; Terraform owns the rest
 }
 resource "aws_lambda_event_source_mapping" "jobs" {
   event_source_arn        = aws_sqs_queue.jobs.arn
@@ -248,7 +250,11 @@ resource "aws_iam_role" "deploy" {
   assume_role_policy = jsonencode({ Version = "2012-10-17", Statement = [{ Effect = "Allow", Action = "sts:AssumeRoleWithWebIdentity",
     Principal = { Federated = aws_iam_openid_connect_provider.github.arn },
     Condition = { StringEquals = { "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com" },
-  StringLike = { "token.actions.githubusercontent.com:sub" = "repo:${var.github_repo}:ref:refs/heads/main" } } }] })
+      StringLike = { "token.actions.githubusercontent.com:sub" = [
+        "repo:${var.github_repo}:ref:refs/heads/main",
+        # newer repos sign tokens with an immutable subject: owner@id/repo@id
+        "repo:${split("/", var.github_repo)[0]}@*/${split("/", var.github_repo)[1]}@*:ref:refs/heads/main",
+  ] } } }] })
 }
 resource "aws_iam_role_policy" "deploy" {
   role = aws_iam_role.deploy.id
