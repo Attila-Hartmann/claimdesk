@@ -30,7 +30,13 @@ def _process_doc(d: dict, model: str | None) -> None:
     d["ocr_ms"] = int((time.perf_counter() - t0) * 1000)
     d["type"], d["type_confidence"] = classify.predict(d["text"])
     d["model"] = model or router.pick()
-    r = extract.extract(extract.endpoint(d["model"]), d["type"], d["text"])
+    try:
+        r = extract.extract(extract.endpoint(d["model"]), d["type"], d["text"])
+    except Exception as e:  # self-hosted model cold or down: the frontier API keeps the queue moving
+        if d["model"] == "champion":
+            raise
+        d["fallback_from"], d["fallback_reason"], d["model"] = d["model"], str(e)[:200], "champion"
+        r = extract.extract(extract.endpoint("champion"), d["type"], d["text"])
     d |= {"fields": r.fields, "error": r.error, "latency_ms": r.latency_ms, "cost_usd": r.cost_usd, "tokens_in": r.tokens_in,
           "tokens_out": r.tokens_out, "served_by": r.model}
     d["issues"] = validate.check_document(d["type"], r.fields or {})
@@ -67,13 +73,12 @@ def review(cid: str, doc_id: str, fields: dict, reviewer: str, *, simulated: boo
 
 def uploads_today() -> int:
     today = datetime.now(UTC).date().isoformat()
-    return sum(1 for k in store.keys("claims/") if (c := store.get_json(k)) and c["source"] == "upload" and c["received_at"].startswith(today))
+    return sum(1 for c in store.get_json_many("claims/") if c["source"] == "upload" and c["received_at"].startswith(today))
 
 
 def list_claims() -> list[dict]:
     out = []
-    for key in store.keys("claims/"):
-        c = store.get_json(key)
+    for c in store.get_json_many("claims/"):
         out.append({k: c.get(k) for k in ("id", "ref", "status", "received_at", "processed_at")}
                    | {"docs": len(c["documents"]), "fraud": (c.get("fraud") or {}).get("score"),
                       "issues": len(c.get("claim_issues") or []) + sum(len(d.get("issues") or []) for d in c["documents"]),

@@ -37,7 +37,7 @@ class Canary(BaseModel):
 
 @app.get("/api/health")
 def health() -> dict:
-    return {"ok": True, "router": router.state()}
+    return {"ok": True, "readonly": settings().reviews_readonly, "router": router.state()}
 
 
 @app.get("/api/claims")
@@ -87,7 +87,8 @@ def review(cid: str, doc_id: str, r: Review) -> dict:
 
 @app.get("/api/rollout")
 def rollout() -> dict:
-    return {"state": router.state(), "stats": router.feedback_stats(), "decision": router.decide(apply=False)}
+    stats = router.feedback_stats()
+    return {"state": router.state(), "stats": stats, "decision": router.decide(apply=False, stats=stats)}
 
 
 @app.post("/api/rollout")

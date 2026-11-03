@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     challenger_model: str = "claimdesk-extractor"
     challenger_api_key: str = "not-needed"
     challenger_key_param: str = ""  # AWS: SSM SecureString holding the challenger key
+    challenger_usd_per_1k_docs: float = 0.055  # measured GPU cost on an L4 (see README), self-hosted models have no token price
 
     store_bucket: str = ""  # S3 bucket on AWS; empty = local folder data/store
     queue_url: str = ""  # SQS queue on AWS; empty = process uploads inline

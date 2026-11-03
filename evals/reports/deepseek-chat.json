@@ -2,23 +2,25 @@
  "summary": {
   "endpoint": "champion",
   "model": "deepseek-chat",
-  "at": "2026-11-02T14:21:53+00:00",
+  "at": "2026-11-03T12:35:02+00:00",
+  "wall_s": 48.1,
+  "concurrency": 10,
   "docs": 290,
-  "field_accuracy": 0.9790615068237054,
-  "doc_exact": 0.8137931034482758,
+  "field_accuracy": 0.9762572443447374,
+  "doc_exact": 0.7896551724137931,
   "valid_json": 1.0,
   "by_group": {
-   "accident_statement": 0.8846,
-   "claim_form": 0.9911,
-   "ocr": 0.9414,
+   "accident_statement": 0.8862,
+   "claim_form": 0.986,
+   "ocr": 0.9302,
    "pdf_text": 0.9915,
-   "repair_invoice": 0.9918
+   "repair_invoice": 0.9892
   },
-  "tokens_in_avg": 904.5758620689655,
-  "tokens_out_avg": 198.79310344827587,
-  "cost_per_1k_docs_usd": 0.46290789655172415,
-  "p50_ms": 1534,
-  "p95_ms": 1923
+  "tokens_in_avg": 923.5758620689655,
+  "tokens_out_avg": 207.89655172413794,
+  "cost_per_1k_docs_usd": 0.4780516896551724,
+  "p50_ms": 1601,
+  "p95_ms": 2039
  },
  "results": [
   {
@@ -56,9 +58,9 @@
     "payout_iban": "HU39413078716168281264644604",
     "signed_date": "2024-08-25"
    },
-   "latency_ms": 2273,
-   "cost_usd": 0.00043593000000000006,
-   "tokens_in": 869,
+   "latency_ms": 1914,
+   "cost_usd": 0.00044106000000000006,
+   "tokens_in": 888,
    "tokens_out": 183
   },
   {
@@ -79,11 +81,11 @@
     "line_items.0.quantity": true,
     "line_items.0.unit_price_huf": true,
     "line_items.0.net_huf": true,
-    "line_items.1.description": true,
+    "line_items.1.description": false,
     "line_items.1.quantity": true,
     "line_items.1.unit_price_huf": true,
     "line_items.1.net_huf": true,
-    "line_items.2.description": true,
+    "line_items.2.description": false,
     "line_items.2.quantity": true,
     "line_items.2.unit_price_huf": true,
     "line_items.2.net_huf": true,
@@ -112,13 +114,13 @@
       "net_huf": 169100
      },
      {
-      "description": "Fényszóró, jobb",
+      "description": "Fényszóró, jobb i",
       "quantity": 1,
       "unit_price_huf": 231300,
       "net_huf": 231300
      },
      {
-      "description": "Karosszériamunka (óra)",
+      "description": "Karosszériamunka (6ra)",
       "quantity": 8,
       "unit_price_huf": 21400,
       "net_huf": 171200
@@ -135,10 +137,10 @@
     "vat_huf": 171072,
     "gross_total_huf": 804672
    },
-   "latency_ms": 2638,
-   "cost_usd": 0.0006420299999999999,
-   "tokens_in": 1009,
-   "tokens_out": 336
+   "latency_ms": 2415,
+   "cost_usd": 0.00064826,
+   "tokens_in": 1028,
+   "tokens_out": 337
   },
   {
    "doc_id": "KH-2026-10013-3",
@@ -179,15 +181,16 @@
      "A: hátulról ütközött"
     ],
     "circumstances_b": [
-     "B: hátulról ütközött"
+     "B: parkolóhelyről kiállt",
+     "B: egyenesen haladt"
     ],
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 2351,
-   "cost_usd": 0.00043114,
-   "tokens_in": 892,
-   "tokens_out": 173
+   "latency_ms": 2039,
+   "cost_usd": 0.0004461700000000001,
+   "tokens_in": 911,
+   "tokens_out": 182
   },
   {
    "doc_id": "KH-2026-10017-1",
@@ -224,9 +227,9 @@
     "payout_iban": "HU29066717231430154048684431",
     "signed_date": "2024-04-03"
    },
-   "latency_ms": 2500,
-   "cost_usd": 0.00042223,
-   "tokens_in": 859,
+   "latency_ms": 2061,
+   "cost_usd": 0.00042736,
+   "tokens_in": 878,
    "tokens_out": 173
   },
   {
@@ -303,10 +306,10 @@
     "vat_huf": 147150,
     "gross_total_huf": 692150
    },
-   "latency_ms": 3076,
-   "cost_usd": 0.00051602,
-   "tokens_in": 966,
-   "tokens_out": 232
+   "latency_ms": 2113,
+   "cost_usd": 0.0005783500000000002,
+   "tokens_in": 985,
+   "tokens_out": 284
   },
   {
    "doc_id": "KH-2026-10020-1",
@@ -343,9 +346,9 @@
     "payout_iban": "HU66390996030824628194821993",
     "signed_date": "2026-03-09"
    },
-   "latency_ms": 2512,
-   "cost_usd": 0.00044278000000000004,
-   "tokens_in": 874,
+   "latency_ms": 1742,
+   "cost_usd": 0.00044791000000000004,
+   "tokens_in": 893,
    "tokens_out": 188
   },
   {
@@ -422,10 +425,10 @@
     "vat_huf": 143154,
     "gross_total_huf": 673354
    },
-   "latency_ms": 2575,
-   "cost_usd": 0.0005830400000000001,
-   "tokens_in": 982,
-   "tokens_out": 289
+   "latency_ms": 2306,
+   "cost_usd": 0.0006090700000000001,
+   "tokens_in": 1001,
+   "tokens_out": 308
   },
   {
    "doc_id": "KH-2026-10020-3",
@@ -470,9 +473,9 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 2565,
-   "cost_usd": 0.00045175,
-   "tokens_in": 895,
+   "latency_ms": 1741,
+   "cost_usd": 0.00045688000000000006,
+   "tokens_in": 914,
    "tokens_out": 191
   },
   {
@@ -510,9 +513,9 @@
     "payout_iban": "HU12918437381718146327780772",
     "signed_date": "2024-04-19"
    },
-   "latency_ms": 2464,
-   "cost_usd": 0.0004236,
-   "tokens_in": 860,
+   "latency_ms": 1760,
+   "cost_usd": 0.00042873,
+   "tokens_in": 879,
    "tokens_out": 174
   },
   {
@@ -599,10 +602,10 @@
     "vat_huf": 208251,
     "gross_total_huf": 979551
    },
-   "latency_ms": 2685,
-   "cost_usd": 0.00056044,
-   "tokens_in": 992,
-   "tokens_out": 266
+   "latency_ms": 2376,
+   "cost_usd": 0.00063047,
+   "tokens_in": 1011,
+   "tokens_out": 325
   },
   {
    "doc_id": "KH-2026-10027-1",
@@ -639,9 +642,9 @@
     "payout_iban": "HU18924053261000857719611459",
     "signed_date": "2026-08-28"
    },
-   "latency_ms": 1555,
-   "cost_usd": 0.00042443000000000005,
-   "tokens_in": 859,
+   "latency_ms": 1647,
+   "cost_usd": 0.00042956000000000005,
+   "tokens_in": 878,
    "tokens_out": 175
   },
   {
@@ -708,10 +711,10 @@
     "vat_huf": 83970,
     "gross_total_huf": 394970
    },
-   "latency_ms": 1647,
-   "cost_usd": 0.00048719000000000003,
-   "tokens_in": 957,
-   "tokens_out": 208
+   "latency_ms": 1649,
+   "cost_usd": 0.0005407200000000001,
+   "tokens_in": 976,
+   "tokens_out": 252
   },
   {
    "doc_id": "KH-2026-10047-1",
@@ -748,9 +751,9 @@
     "payout_iban": "HU15857153314204410380685405",
     "signed_date": "2025-03-22"
    },
-   "latency_ms": 1378,
-   "cost_usd": 0.00045949,
-   "tokens_in": 887,
+   "latency_ms": 1661,
+   "cost_usd": 0.00046462,
+   "tokens_in": 906,
    "tokens_out": 200
   },
   {
@@ -827,9 +830,9 @@
     "vat_huf": 185220,
     "gross_total_huf": 871220
    },
-   "latency_ms": 1664,
-   "cost_usd": 0.0005200900000000001,
-   "tokens_in": 977,
+   "latency_ms": 1605,
+   "cost_usd": 0.0005252200000000001,
+   "tokens_in": 996,
    "tokens_out": 233
   },
   {
@@ -868,24 +871,24 @@
     },
     "circumstances_a": [
      "A: álló helyzetben volt",
-     "A: parkolóhelyről kiállt",
+     "A: egyenesen haladt",
      "A: sávot váltott",
      "A: hátulról ütközött",
      "A: tolatott"
     ],
     "circumstances_b": [
-     "B: álló helyzetben volt",
      "B: parkolóhelyről kiállt",
+     "B: egyenesen haladt",
      "B: sávot váltott",
-     "B: tolatott"
+     "B: kanyarodott"
     ],
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1617,
-   "cost_usd": 0.00054031,
-   "tokens_in": 893,
-   "tokens_out": 272
+   "latency_ms": 1616,
+   "cost_usd": 0.00049924,
+   "tokens_in": 912,
+   "tokens_out": 230
   },
   {
    "doc_id": "KH-2026-10050-1",
@@ -922,9 +925,9 @@
     "payout_iban": "HU17970357086926025538028484",
     "signed_date": "2024-03-28"
    },
-   "latency_ms": 1363,
-   "cost_usd": 0.00042798,
-   "tokens_in": 864,
+   "latency_ms": 1524,
+   "cost_usd": 0.00043311,
+   "tokens_in": 883,
    "tokens_out": 177
   },
   {
@@ -1011,10 +1014,10 @@
     "vat_huf": 204687,
     "gross_total_huf": 962787
    },
-   "latency_ms": 1616,
-   "cost_usd": 0.00054946,
-   "tokens_in": 988,
-   "tokens_out": 257
+   "latency_ms": 1860,
+   "cost_usd": 0.00064149,
+   "tokens_in": 1007,
+   "tokens_out": 336
   },
   {
    "doc_id": "KH-2026-10060-1",
@@ -1051,9 +1054,9 @@
     "payout_iban": "HU03607151257715572189486354",
     "signed_date": "2024-04-17"
    },
-   "latency_ms": 1345,
-   "cost_usd": 0.00041949,
-   "tokens_in": 857,
+   "latency_ms": 1676,
+   "cost_usd": 0.00042462,
+   "tokens_in": 876,
    "tokens_out": 171
   },
   {
@@ -1120,10 +1123,10 @@
     "vat_huf": 97794,
     "gross_total_huf": 459994
    },
-   "latency_ms": 1237,
-   "cost_usd": 0.00047870000000000003,
-   "tokens_in": 950,
-   "tokens_out": 202
+   "latency_ms": 1617,
+   "cost_usd": 0.00053223,
+   "tokens_in": 969,
+   "tokens_out": 246
   },
   {
    "doc_id": "KH-2026-10066-1",
@@ -1160,9 +1163,9 @@
     "payout_iban": "HU76317587393373474350625609",
     "signed_date": "2024-09-10"
    },
-   "latency_ms": 1363,
-   "cost_usd": 0.00043045000000000003,
-   "tokens_in": 865,
+   "latency_ms": 1702,
+   "cost_usd": 0.00043558000000000003,
+   "tokens_in": 884,
    "tokens_out": 179
   },
   {
@@ -1239,9 +1242,9 @@
     "vat_huf": 121959,
     "gross_total_huf": 573659
    },
-   "latency_ms": 1668,
-   "cost_usd": 0.0005258600000000001,
-   "tokens_in": 978,
+   "latency_ms": 1602,
+   "cost_usd": 0.00053099,
+   "tokens_in": 997,
    "tokens_out": 238
   },
   {
@@ -1279,9 +1282,9 @@
     "payout_iban": "HU45864891737895883619496243",
     "signed_date": "2026-07-15"
    },
-   "latency_ms": 1613,
-   "cost_usd": 0.00038382000000000005,
-   "tokens_in": 786,
+   "latency_ms": 1128,
+   "cost_usd": 0.00038895000000000005,
+   "tokens_in": 805,
    "tokens_out": 156
   },
   {
@@ -1358,9 +1361,9 @@
     "vat_huf": 164079,
     "gross_total_huf": 771779
    },
-   "latency_ms": 1777,
-   "cost_usd": 0.0005162900000000001,
-   "tokens_in": 967,
+   "latency_ms": 1747,
+   "cost_usd": 0.0005214200000000001,
+   "tokens_in": 986,
    "tokens_out": 232
   },
   {
@@ -1398,9 +1401,9 @@
     "payout_iban": "HU66390996030824628194821993",
     "signed_date": "2024-06-02"
    },
-   "latency_ms": 1621,
-   "cost_usd": 0.00042497000000000005,
-   "tokens_in": 861,
+   "latency_ms": 1402,
+   "cost_usd": 0.00043010000000000005,
+   "tokens_in": 880,
    "tokens_out": 175
   },
   {
@@ -1467,10 +1470,10 @@
     "vat_huf": 162378,
     "gross_total_huf": 763778
    },
-   "latency_ms": 1903,
-   "cost_usd": 0.00047953000000000004,
-   "tokens_in": 949,
-   "tokens_out": 203
+   "latency_ms": 1471,
+   "cost_usd": 0.00053306,
+   "tokens_in": 968,
+   "tokens_out": 247
   },
   {
    "doc_id": "KH-2026-10073-3",
@@ -1520,10 +1523,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1726,
-   "cost_usd": 0.0005076,
-   "tokens_in": 890,
-   "tokens_out": 243
+   "latency_ms": 1560,
+   "cost_usd": 0.00047313,
+   "tokens_in": 909,
+   "tokens_out": 207
   },
   {
    "doc_id": "KH-2026-10074-1",
@@ -1560,10 +1563,10 @@
     "payout_iban": "HU59239239179346807071186257",
     "signed_date": "2026-09-27"
    },
-   "latency_ms": 1221,
-   "cost_usd": 0.00037724,
-   "tokens_in": 782,
-   "tokens_out": 151
+   "latency_ms": 1519,
+   "cost_usd": 0.00042307000000000005,
+   "tokens_in": 801,
+   "tokens_out": 188
   },
   {
    "doc_id": "KH-2026-10074-2",
@@ -1649,9 +1652,9 @@
     "vat_huf": 186867,
     "gross_total_huf": 878967
    },
-   "latency_ms": 1617,
-   "cost_usd": 0.00055087,
-   "tokens_in": 981,
+   "latency_ms": 1680,
+   "cost_usd": 0.000556,
+   "tokens_in": 1000,
    "tokens_out": 260
   },
   {
@@ -1697,9 +1700,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1641,
-   "cost_usd": 0.00039946000000000003,
-   "tokens_in": 848,
+   "latency_ms": 1403,
+   "cost_usd": 0.00040459000000000003,
+   "tokens_in": 867,
    "tokens_out": 155
   },
   {
@@ -1737,9 +1740,9 @@
     "payout_iban": "HU81824128009371783235590255",
     "signed_date": "2025-05-14"
    },
-   "latency_ms": 1638,
-   "cost_usd": 0.00041396000000000005,
-   "tokens_in": 808,
+   "latency_ms": 1500,
+   "cost_usd": 0.00041909000000000005,
+   "tokens_in": 827,
    "tokens_out": 178
   },
   {
@@ -1757,8 +1760,8 @@
     "plate": true,
     "line_items.count": true,
     "line_items.0.description": false,
-    "line_items.0.quantity": false,
-    "line_items.0.unit_price_huf": false,
+    "line_items.0.quantity": true,
+    "line_items.0.unit_price_huf": true,
     "line_items.0.net_huf": true,
     "line_items.1.description": true,
     "line_items.1.quantity": true,
@@ -1784,8 +1787,8 @@
     "line_items": [
      {
       "description": "Fényszóró, bal Ht",
-      "quantity": 243,
-      "unit_price_huf": 200,
+      "quantity": 1,
+      "unit_price_huf": 243200,
       "net_huf": 243200
      },
      {
@@ -1806,10 +1809,10 @@
     "vat_huf": 110538,
     "gross_total_huf": 519938
    },
-   "latency_ms": 1778,
-   "cost_usd": 0.00048500999999999997,
-   "tokens_in": 953,
-   "tokens_out": 207
+   "latency_ms": 1482,
+   "cost_usd": 0.00049124,
+   "tokens_in": 972,
+   "tokens_out": 208
   },
   {
    "doc_id": "KH-2026-10091-1",
@@ -1846,9 +1849,9 @@
     "payout_iban": "HU83432769452982624318061097",
     "signed_date": "2026-10-31"
    },
-   "latency_ms": 1364,
-   "cost_usd": 0.00041511,
-   "tokens_in": 853,
+   "latency_ms": 1545,
+   "cost_usd": 0.00042024,
+   "tokens_in": 872,
    "tokens_out": 168
   },
   {
@@ -1905,10 +1908,10 @@
     "vat_huf": 84348,
     "gross_total_huf": 396748
    },
-   "latency_ms": 1503,
-   "cost_usd": 0.00044277,
-   "tokens_in": 931,
-   "tokens_out": 174
+   "latency_ms": 1530,
+   "cost_usd": 0.0004875,
+   "tokens_in": 950,
+   "tokens_out": 210
   },
   {
    "doc_id": "KH-2026-10092-1",
@@ -1945,9 +1948,9 @@
     "payout_iban": "HU73394742960479548481187535",
     "signed_date": "2025-03-09"
    },
-   "latency_ms": 1301,
-   "cost_usd": 0.00042223,
-   "tokens_in": 859,
+   "latency_ms": 1365,
+   "cost_usd": 0.00042736,
+   "tokens_in": 878,
    "tokens_out": 173
   },
   {
@@ -2014,10 +2017,10 @@
     "vat_huf": 149985,
     "gross_total_huf": 705485
    },
-   "latency_ms": 1627,
-   "cost_usd": 0.00047266,
-   "tokens_in": 948,
-   "tokens_out": 197
+   "latency_ms": 1574,
+   "cost_usd": 0.0005261900000000001,
+   "tokens_in": 967,
+   "tokens_out": 241
   },
   {
    "doc_id": "KH-2026-10093-1",
@@ -2054,9 +2057,9 @@
     "payout_iban": "HU36846968636285870131825477",
     "signed_date": "2026-06-29"
    },
-   "latency_ms": 1562,
-   "cost_usd": 0.00040026,
-   "tokens_in": 798,
+   "latency_ms": 1508,
+   "cost_usd": 0.00040539,
+   "tokens_in": 817,
    "tokens_out": 168
   },
   {
@@ -2143,10 +2146,10 @@
     "vat_huf": 156708,
     "gross_total_huf": 737108
    },
-   "latency_ms": 1914,
-   "cost_usd": 0.0005522200000000001,
-   "tokens_in": 986,
-   "tokens_out": 260
+   "latency_ms": 1818,
+   "cost_usd": 0.00064425,
+   "tokens_in": 1005,
+   "tokens_out": 339
   },
   {
    "doc_id": "KH-2026-10093-3",
@@ -2191,9 +2194,9 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1531,
-   "cost_usd": 0.00040575,
-   "tokens_in": 855,
+   "latency_ms": 1321,
+   "cost_usd": 0.00041087999999999997,
+   "tokens_in": 874,
    "tokens_out": 159
   },
   {
@@ -2231,9 +2234,9 @@
     "payout_iban": "HU34852256297449822952301340",
     "signed_date": "2024-03-13"
    },
-   "latency_ms": 1587,
-   "cost_usd": 0.00042580000000000005,
-   "tokens_in": 860,
+   "latency_ms": 1583,
+   "cost_usd": 0.00043093000000000005,
+   "tokens_in": 879,
    "tokens_out": 176
   },
   {
@@ -2300,10 +2303,10 @@
     "vat_huf": 76707,
     "gross_total_huf": 360807
    },
-   "latency_ms": 1594,
-   "cost_usd": 0.00047430000000000004,
-   "tokens_in": 950,
-   "tokens_out": 198
+   "latency_ms": 1722,
+   "cost_usd": 0.0005278300000000001,
+   "tokens_in": 969,
+   "tokens_out": 242
   },
   {
    "doc_id": "KH-2026-10097-3",
@@ -2341,7 +2344,8 @@
     },
     "circumstances_a": [
      "A: egyenesen haladt",
-     "A: sávot váltott"
+     "A: sávot váltott",
+     "A: elsőbbséget nem adott"
     ],
     "circumstances_b": [
      "B: parkolóhelyről kiállt",
@@ -2350,10 +2354,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1438,
-   "cost_usd": 0.00044187,
-   "tokens_in": 891,
-   "tokens_out": 183
+   "latency_ms": 1766,
+   "cost_usd": 0.0004602,
+   "tokens_in": 910,
+   "tokens_out": 195
   },
   {
    "doc_id": "KH-2026-10098-1",
@@ -2390,9 +2394,9 @@
     "payout_iban": "HU37764746138286307656181624",
     "signed_date": "2024-07-14"
    },
-   "latency_ms": 1690,
-   "cost_usd": 0.00043045000000000003,
-   "tokens_in": 865,
+   "latency_ms": 1763,
+   "cost_usd": 0.00043558000000000003,
+   "tokens_in": 884,
    "tokens_out": 179
   },
   {
@@ -2459,9 +2463,9 @@
     "vat_huf": 167049,
     "gross_total_huf": 785749
    },
-   "latency_ms": 1746,
-   "cost_usd": 0.0004767900000000001,
-   "tokens_in": 947,
+   "latency_ms": 1515,
+   "cost_usd": 0.00048192,
+   "tokens_in": 966,
    "tokens_out": 201
   },
   {
@@ -2507,10 +2511,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1375,
-   "cost_usd": 0.00040943000000000007,
-   "tokens_in": 889,
-   "tokens_out": 154
+   "latency_ms": 1557,
+   "cost_usd": 0.0004486600000000001,
+   "tokens_in": 908,
+   "tokens_out": 185
   },
   {
    "doc_id": "KH-2026-10110-1",
@@ -2547,9 +2551,9 @@
     "payout_iban": "HU77506440086486949277746017",
     "signed_date": "2026-10-29"
    },
-   "latency_ms": 1721,
-   "cost_usd": 0.00041537999999999997,
-   "tokens_in": 854,
+   "latency_ms": 1166,
+   "cost_usd": 0.00042050999999999997,
+   "tokens_in": 873,
    "tokens_out": 168
   },
   {
@@ -2606,10 +2610,10 @@
     "vat_huf": 46980,
     "gross_total_huf": 220980
    },
-   "latency_ms": 1562,
-   "cost_usd": 0.00044659,
-   "tokens_in": 937,
-   "tokens_out": 176
+   "latency_ms": 1441,
+   "cost_usd": 0.0004913200000000001,
+   "tokens_in": 956,
+   "tokens_out": 212
   },
   {
    "doc_id": "KH-2026-10110-3",
@@ -2654,9 +2658,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1446,
-   "cost_usd": 0.00040997,
-   "tokens_in": 891,
+   "latency_ms": 1489,
+   "cost_usd": 0.0004151,
+   "tokens_in": 910,
    "tokens_out": 154
   },
   {
@@ -2694,9 +2698,9 @@
     "payout_iban": "HU91634661682224228378233226",
     "signed_date": "2025-10-18"
    },
-   "latency_ms": 1761,
-   "cost_usd": 0.00041533000000000005,
-   "tokens_in": 809,
+   "latency_ms": 1393,
+   "cost_usd": 0.00042046000000000005,
+   "tokens_in": 828,
    "tokens_out": 179
   },
   {
@@ -2753,9 +2757,9 @@
     "vat_huf": 31401,
     "gross_total_huf": 147701
    },
-   "latency_ms": 1628,
-   "cost_usd": 0.00045097000000000003,
-   "tokens_in": 941,
+   "latency_ms": 1752,
+   "cost_usd": 0.00045610000000000003,
+   "tokens_in": 960,
    "tokens_out": 179
   },
   {
@@ -2801,9 +2805,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1417,
-   "cost_usd": 0.00040658000000000003,
-   "tokens_in": 854,
+   "latency_ms": 1398,
+   "cost_usd": 0.00041171000000000003,
+   "tokens_in": 873,
    "tokens_out": 160
   },
   {
@@ -2841,9 +2845,9 @@
     "payout_iban": "HU70427813716841115737175427",
     "signed_date": "2024-03-24"
    },
-   "latency_ms": 1690,
-   "cost_usd": 0.0004400400000000001,
-   "tokens_in": 872,
+   "latency_ms": 3089,
+   "cost_usd": 0.00044517000000000005,
+   "tokens_in": 891,
    "tokens_out": 186
   },
   {
@@ -2920,10 +2924,10 @@
     "vat_huf": 113022,
     "gross_total_huf": 531622
    },
-   "latency_ms": 1765,
-   "cost_usd": 0.00052094,
-   "tokens_in": 972,
-   "tokens_out": 235
+   "latency_ms": 1875,
+   "cost_usd": 0.00058327,
+   "tokens_in": 991,
+   "tokens_out": 287
   },
   {
    "doc_id": "KH-2026-10118-3",
@@ -2968,9 +2972,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1516,
-   "cost_usd": 0.00041107000000000003,
-   "tokens_in": 891,
+   "latency_ms": 1317,
+   "cost_usd": 0.00041620000000000003,
+   "tokens_in": 910,
    "tokens_out": 155
   },
   {
@@ -3008,9 +3012,9 @@
     "payout_iban": "HU23146299132233108133201421",
     "signed_date": "2026-10-30"
    },
-   "latency_ms": 1556,
-   "cost_usd": 0.0004318200000000001,
-   "tokens_in": 866,
+   "latency_ms": 2790,
+   "cost_usd": 0.00043695,
+   "tokens_in": 885,
    "tokens_out": 180
   },
   {
@@ -3087,10 +3091,10 @@
     "vat_huf": 95148,
     "gross_total_huf": 447548
    },
-   "latency_ms": 1885,
-   "cost_usd": 0.0005261500000000001,
-   "tokens_in": 975,
-   "tokens_out": 239
+   "latency_ms": 3036,
+   "cost_usd": 0.00058738,
+   "tokens_in": 994,
+   "tokens_out": 290
   },
   {
    "doc_id": "KH-2026-10135-3",
@@ -3135,9 +3139,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1248,
-   "cost_usd": 0.00041107000000000003,
-   "tokens_in": 891,
+   "latency_ms": 2559,
+   "cost_usd": 0.00041620000000000003,
+   "tokens_in": 910,
    "tokens_out": 155
   },
   {
@@ -3175,9 +3179,9 @@
     "payout_iban": "HU12466972538126046914397501",
     "signed_date": "2026-09-26"
    },
-   "latency_ms": 1595,
-   "cost_usd": 0.00041313,
-   "tokens_in": 809,
+   "latency_ms": 2588,
+   "cost_usd": 0.00041826,
+   "tokens_in": 828,
    "tokens_out": 177
   },
   {
@@ -3254,10 +3258,10 @@
     "vat_huf": 147042,
     "gross_total_huf": 691642
    },
-   "latency_ms": 1944,
-   "cost_usd": 0.0005275,
-   "tokens_in": 980,
-   "tokens_out": 239
+   "latency_ms": 1947,
+   "cost_usd": 0.00058873,
+   "tokens_in": 999,
+   "tokens_out": 290
   },
   {
    "doc_id": "KH-2026-10143-1",
@@ -3294,9 +3298,9 @@
     "payout_iban": "HU87536287498100164722635716",
     "signed_date": "2026-09-20"
    },
-   "latency_ms": 1413,
-   "cost_usd": 0.00043045000000000003,
-   "tokens_in": 865,
+   "latency_ms": 1635,
+   "cost_usd": 0.00043558000000000003,
+   "tokens_in": 884,
    "tokens_out": 179
   },
   {
@@ -3363,9 +3367,9 @@
     "vat_huf": 64206,
     "gross_total_huf": 302006
    },
-   "latency_ms": 1710,
-   "cost_usd": 0.00047924,
-   "tokens_in": 952,
+   "latency_ms": 1612,
+   "cost_usd": 0.00048437,
+   "tokens_in": 971,
    "tokens_out": 202
   },
   {
@@ -3403,9 +3407,9 @@
     "payout_iban": "HU73636026985950040242815214",
     "signed_date": "2026-04-08"
    },
-   "latency_ms": 1498,
-   "cost_usd": 0.00041949,
-   "tokens_in": 857,
+   "latency_ms": 1616,
+   "cost_usd": 0.00042462,
+   "tokens_in": 876,
    "tokens_out": 171
   },
   {
@@ -3492,9 +3496,9 @@
     "vat_huf": 185436,
     "gross_total_huf": 872236
    },
-   "latency_ms": 1830,
-   "cost_usd": 0.00056619,
-   "tokens_in": 997,
+   "latency_ms": 1946,
+   "cost_usd": 0.0005713199999999999,
+   "tokens_in": 1016,
    "tokens_out": 270
   },
   {
@@ -3532,9 +3536,9 @@
     "payout_iban": "HU20547594622368222400997681",
     "signed_date": "2026-10-27"
    },
-   "latency_ms": 1624,
-   "cost_usd": 0.00043344000000000005,
-   "tokens_in": 872,
+   "latency_ms": 1658,
+   "cost_usd": 0.00043857000000000005,
+   "tokens_in": 891,
    "tokens_out": 180
   },
   {
@@ -3591,9 +3595,9 @@
     "vat_huf": 85347,
     "gross_total_huf": 401447
    },
-   "latency_ms": 1652,
-   "cost_usd": 0.00044111000000000004,
-   "tokens_in": 933,
+   "latency_ms": 1464,
+   "cost_usd": 0.00044624,
+   "tokens_in": 952,
    "tokens_out": 172
   },
   {
@@ -3631,9 +3635,9 @@
     "payout_iban": "HU80707888348631665528719643",
     "signed_date": "2026-10-31"
    },
-   "latency_ms": 1605,
-   "cost_usd": 0.00042989,
-   "tokens_in": 867,
+   "latency_ms": 1961,
+   "cost_usd": 0.00043502000000000005,
+   "tokens_in": 886,
    "tokens_out": 178
   },
   {
@@ -3690,9 +3694,9 @@
     "vat_huf": 71847,
     "gross_total_huf": 337947
    },
-   "latency_ms": 1560,
-   "cost_usd": 0.00043561,
-   "tokens_in": 933,
+   "latency_ms": 1170,
+   "cost_usd": 0.00044074,
+   "tokens_in": 952,
    "tokens_out": 167
   },
   {
@@ -3730,9 +3734,9 @@
     "payout_iban": "HU62586537805858793679881933",
     "signed_date": "2025-01-05"
    },
-   "latency_ms": 1551,
-   "cost_usd": 0.0004236,
-   "tokens_in": 860,
+   "latency_ms": 1705,
+   "cost_usd": 0.00042873,
+   "tokens_in": 879,
    "tokens_out": 174
   },
   {
@@ -3750,7 +3754,7 @@
     "plate": true,
     "line_items.count": true,
     "line_items.0.description": false,
-    "line_items.0.quantity": false,
+    "line_items.0.quantity": true,
     "line_items.0.unit_price_huf": true,
     "line_items.0.net_huf": true,
     "line_items.1.description": true,
@@ -3773,7 +3777,7 @@
     "line_items": [
      {
       "description": "Első lökhárító a",
-      "quantity": 184,
+      "quantity": 1,
       "unit_price_huf": 184000,
       "net_huf": 184000
      },
@@ -3789,10 +3793,10 @@
     "vat_huf": 69255,
     "gross_total_huf": 325755
    },
-   "latency_ms": 1474,
-   "cost_usd": 0.00044607000000000007,
-   "tokens_in": 931,
-   "tokens_out": 177
+   "latency_ms": 1452,
+   "cost_usd": 0.0005249000000000001,
+   "tokens_in": 950,
+   "tokens_out": 244
   },
   {
    "doc_id": "KH-2026-10160-3",
@@ -3833,17 +3837,14 @@
      "A: hátulról ütközött",
      "A: tolatott"
     ],
-    "circumstances_b": [
-     "B: parkolóhelyről kiállt",
-     "B: kanyarodott"
-    ],
+    "circumstances_b": [],
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1676,
-   "cost_usd": 0.00047767,
-   "tokens_in": 881,
-   "tokens_out": 218
+   "latency_ms": 1478,
+   "cost_usd": 0.00042340000000000005,
+   "tokens_in": 900,
+   "tokens_out": 164
   },
   {
    "doc_id": "KH-2026-10170-1",
@@ -3880,9 +3881,9 @@
     "payout_iban": "HU07289149478779942481488663",
     "signed_date": "2025-01-05"
    },
-   "latency_ms": 1562,
-   "cost_usd": 0.00041949,
-   "tokens_in": 857,
+   "latency_ms": 1199,
+   "cost_usd": 0.00042462,
+   "tokens_in": 876,
    "tokens_out": 171
   },
   {
@@ -3939,10 +3940,10 @@
     "vat_huf": 45063,
     "gross_total_huf": 211963
    },
-   "latency_ms": 1555,
-   "cost_usd": 0.00044385000000000003,
-   "tokens_in": 935,
-   "tokens_out": 174
+   "latency_ms": 1474,
+   "cost_usd": 0.0004885800000000001,
+   "tokens_in": 954,
+   "tokens_out": 210
   },
   {
    "doc_id": "KH-2026-10171-1",
@@ -3979,9 +3980,9 @@
     "payout_iban": "HU30693734243196746696657633",
     "signed_date": "2026-10-29"
    },
-   "latency_ms": 1512,
-   "cost_usd": 0.00041949,
-   "tokens_in": 857,
+   "latency_ms": 1554,
+   "cost_usd": 0.00042462,
+   "tokens_in": 876,
    "tokens_out": 171
   },
   {
@@ -4038,9 +4039,9 @@
     "vat_huf": 33777,
     "gross_total_huf": 158877
    },
-   "latency_ms": 1504,
-   "cost_usd": 0.00044744000000000007,
-   "tokens_in": 932,
+   "latency_ms": 1311,
+   "cost_usd": 0.00045257000000000007,
+   "tokens_in": 951,
    "tokens_out": 178
   },
   {
@@ -4078,9 +4079,9 @@
     "payout_iban": "HU52757491186252760189555979",
     "signed_date": "2026-10-29"
    },
-   "latency_ms": 1199,
-   "cost_usd": 0.00041264000000000003,
-   "tokens_in": 852,
+   "latency_ms": 1319,
+   "cost_usd": 0.00041777000000000003,
+   "tokens_in": 871,
    "tokens_out": 166
   },
   {
@@ -4157,9 +4158,9 @@
     "vat_huf": 185571,
     "gross_total_huf": 872871
    },
-   "latency_ms": 1687,
-   "cost_usd": 0.00051519,
-   "tokens_in": 967,
+   "latency_ms": 1538,
+   "cost_usd": 0.00052032,
+   "tokens_in": 986,
    "tokens_out": 231
   },
   {
@@ -4197,9 +4198,9 @@
     "payout_iban": "HU32785354543446809289759200",
     "signed_date": "2025-09-03"
    },
-   "latency_ms": 1448,
-   "cost_usd": 0.0004318200000000001,
-   "tokens_in": 866,
+   "latency_ms": 1573,
+   "cost_usd": 0.00043695,
+   "tokens_in": 885,
    "tokens_out": 180
   },
   {
@@ -4266,9 +4267,9 @@
     "vat_huf": 61533,
     "gross_total_huf": 289433
    },
-   "latency_ms": 1749,
-   "cost_usd": 0.00048636,
-   "tokens_in": 958,
+   "latency_ms": 1532,
+   "cost_usd": 0.00049149,
+   "tokens_in": 977,
    "tokens_out": 207
   },
   {
@@ -4314,10 +4315,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1374,
-   "cost_usd": 0.0004138100000000001,
-   "tokens_in": 893,
-   "tokens_out": 157
+   "latency_ms": 1563,
+   "cost_usd": 0.00045304000000000004,
+   "tokens_in": 912,
+   "tokens_out": 188
   },
   {
    "doc_id": "KH-2026-10174-1",
@@ -4354,9 +4355,9 @@
     "payout_iban": "HU09396190368438704319178658",
     "signed_date": "2025-02-27"
    },
-   "latency_ms": 1310,
-   "cost_usd": 0.00040990000000000004,
-   "tokens_in": 850,
+   "latency_ms": 1338,
+   "cost_usd": 0.00041503000000000004,
+   "tokens_in": 869,
    "tokens_out": 164
   },
   {
@@ -4433,9 +4434,9 @@
     "vat_huf": 131220,
     "gross_total_huf": 617220
    },
-   "latency_ms": 1825,
-   "cost_usd": 0.00063175,
-   "tokens_in": 975,
+   "latency_ms": 1890,
+   "cost_usd": 0.0006368800000000001,
+   "tokens_in": 994,
    "tokens_out": 335
   },
   {
@@ -4481,9 +4482,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1163,
-   "cost_usd": 0.00040997,
-   "tokens_in": 891,
+   "latency_ms": 1265,
+   "cost_usd": 0.0004151,
+   "tokens_in": 910,
    "tokens_out": 154
   },
   {
@@ -4521,9 +4522,9 @@
     "payout_iban": "HU54081756547717122080961702",
     "signed_date": "2026-10-25"
    },
-   "latency_ms": 1521,
-   "cost_usd": 0.00042306000000000006,
-   "tokens_in": 858,
+   "latency_ms": 1357,
+   "cost_usd": 0.00042819000000000006,
+   "tokens_in": 877,
    "tokens_out": 174
   },
   {
@@ -4544,7 +4545,7 @@
     "line_items.0.quantity": true,
     "line_items.0.unit_price_huf": true,
     "line_items.0.net_huf": true,
-    "line_items.1.description": true,
+    "line_items.1.description": false,
     "line_items.1.quantity": true,
     "line_items.1.unit_price_huf": true,
     "line_items.1.net_huf": true,
@@ -4573,7 +4574,7 @@
       "net_huf": 89500
      },
      {
-      "description": "Ajtó, jobb első",
+      "description": "Ajtó, jobb első il",
       "quantity": 1,
       "unit_price_huf": 151300,
       "net_huf": 151300
@@ -4590,10 +4591,10 @@
     "vat_huf": 87210,
     "gross_total_huf": 410210
    },
-   "latency_ms": 1295,
-   "cost_usd": 0.00047926,
-   "tokens_in": 948,
-   "tokens_out": 203
+   "latency_ms": 1671,
+   "cost_usd": 0.00048549,
+   "tokens_in": 967,
+   "tokens_out": 204
   },
   {
    "doc_id": "KH-2026-10186-1",
@@ -4630,9 +4631,9 @@
     "payout_iban": "HU81943577278538829738339554",
     "signed_date": "2025-02-14"
    },
-   "latency_ms": 1682,
-   "cost_usd": 0.0004131800000000001,
-   "tokens_in": 854,
+   "latency_ms": 1418,
+   "cost_usd": 0.0004183100000000001,
+   "tokens_in": 873,
    "tokens_out": 166
   },
   {
@@ -4709,10 +4710,10 @@
     "vat_huf": 266301,
     "gross_total_huf": 1252601
    },
-   "latency_ms": 1691,
-   "cost_usd": 0.0005036700000000001,
-   "tokens_in": 961,
-   "tokens_out": 222
+   "latency_ms": 2055,
+   "cost_usd": 0.000566,
+   "tokens_in": 980,
+   "tokens_out": 274
   },
   {
    "doc_id": "KH-2026-10187-1",
@@ -4749,9 +4750,9 @@
     "payout_iban": "HU46412306799262409824965415",
     "signed_date": "2024-10-19"
    },
-   "latency_ms": 1339,
-   "cost_usd": 0.0004236,
-   "tokens_in": 860,
+   "latency_ms": 1693,
+   "cost_usd": 0.00042873,
+   "tokens_in": 879,
    "tokens_out": 174
   },
   {
@@ -4818,10 +4819,10 @@
     "vat_huf": 106029,
     "gross_total_huf": 498729
    },
-   "latency_ms": 1677,
-   "cost_usd": 0.00048719000000000003,
-   "tokens_in": 957,
-   "tokens_out": 208
+   "latency_ms": 1746,
+   "cost_usd": 0.0005396200000000001,
+   "tokens_in": 976,
+   "tokens_out": 251
   },
   {
    "doc_id": "KH-2026-10188-1",
@@ -4858,9 +4859,9 @@
     "payout_iban": "HU45254017098173221318380432",
     "signed_date": "2025-11-06"
    },
-   "latency_ms": 1288,
-   "cost_usd": 0.00042634000000000004,
-   "tokens_in": 862,
+   "latency_ms": 1605,
+   "cost_usd": 0.00043147000000000004,
+   "tokens_in": 881,
    "tokens_out": 176
   },
   {
@@ -4881,15 +4882,15 @@
     "line_items.0.quantity": true,
     "line_items.0.unit_price_huf": true,
     "line_items.0.net_huf": true,
-    "line_items.1.description": true,
+    "line_items.1.description": false,
     "line_items.1.quantity": true,
     "line_items.1.unit_price_huf": true,
     "line_items.1.net_huf": true,
-    "line_items.2.description": true,
+    "line_items.2.description": false,
     "line_items.2.quantity": true,
     "line_items.2.unit_price_huf": true,
     "line_items.2.net_huf": true,
-    "line_items.3.description": true,
+    "line_items.3.description": false,
     "line_items.3.quantity": true,
     "line_items.3.unit_price_huf": true,
     "line_items.3.net_huf": true,
@@ -4918,19 +4919,19 @@
       "net_huf": 197900
      },
      {
-      "description": "Visszapillantó tükör",
+      "description": "Visszapillantó tükör il",
       "quantity": 1,
       "unit_price_huf": 55600,
       "net_huf": 55600
      },
      {
-      "description": "Fényszóró, bal",
+      "description": "Fényszóró, bal il",
       "quantity": 1,
       "unit_price_huf": 90500,
       "net_huf": 90500
      },
      {
-      "description": "Karosszériamunka (óra)",
+      "description": "Karosszériamunka (6ra)",
       "quantity": 9,
       "unit_price_huf": 17100,
       "net_huf": 153900
@@ -4947,10 +4948,10 @@
     "vat_huf": 165051,
     "gross_total_huf": 776351
    },
-   "latency_ms": 1671,
-   "cost_usd": 0.00056455,
-   "tokens_in": 995,
-   "tokens_out": 269
+   "latency_ms": 1970,
+   "cost_usd": 0.0006587800000000001,
+   "tokens_in": 1014,
+   "tokens_out": 350
   },
   {
    "doc_id": "KH-2026-10195-1",
@@ -4987,9 +4988,9 @@
     "payout_iban": "HU95537907414494813970548269",
     "signed_date": "2025-12-03"
    },
-   "latency_ms": 1534,
-   "cost_usd": 0.00041812,
-   "tokens_in": 856,
+   "latency_ms": 1514,
+   "cost_usd": 0.00042325000000000007,
+   "tokens_in": 875,
    "tokens_out": 170
   },
   {
@@ -5066,10 +5067,10 @@
     "vat_huf": 165753,
     "gross_total_huf": 779653
    },
-   "latency_ms": 1748,
-   "cost_usd": 0.00052175,
-   "tokens_in": 975,
-   "tokens_out": 235
+   "latency_ms": 1592,
+   "cost_usd": 0.00058298,
+   "tokens_in": 994,
+   "tokens_out": 286
   },
   {
    "doc_id": "KH-2026-10196-1",
@@ -5106,9 +5107,9 @@
     "payout_iban": "HU80077488116953337824753542",
     "signed_date": "2026-10-25"
    },
-   "latency_ms": 1269,
-   "cost_usd": 0.00044689,
-   "tokens_in": 877,
+   "latency_ms": 1717,
+   "cost_usd": 0.00045202,
+   "tokens_in": 896,
    "tokens_out": 191
   },
   {
@@ -5195,10 +5196,10 @@
     "vat_huf": 182574,
     "gross_total_huf": 858774
    },
-   "latency_ms": 1835,
-   "cost_usd": 0.00055658,
-   "tokens_in": 994,
-   "tokens_out": 262
+   "latency_ms": 1804,
+   "cost_usd": 0.00062661,
+   "tokens_in": 1013,
+   "tokens_out": 321
   },
   {
    "doc_id": "KH-2026-10202-1",
@@ -5235,9 +5236,9 @@
     "payout_iban": "HU45576949283711973144679800",
     "signed_date": "2026-08-17"
    },
-   "latency_ms": 1340,
-   "cost_usd": 0.00041401,
-   "tokens_in": 853,
+   "latency_ms": 1629,
+   "cost_usd": 0.00041914000000000003,
+   "tokens_in": 872,
    "tokens_out": 167
   },
   {
@@ -5304,9 +5305,9 @@
     "vat_huf": 92205,
     "gross_total_huf": 433705
    },
-   "latency_ms": 1470,
-   "cost_usd": 0.00048941,
-   "tokens_in": 953,
+   "latency_ms": 1699,
+   "cost_usd": 0.00049454,
+   "tokens_in": 972,
    "tokens_out": 211
   },
   {
@@ -5344,9 +5345,9 @@
     "payout_iban": "HU25205404689100643900658621",
     "signed_date": "2025-12-13"
    },
-   "latency_ms": 1773,
-   "cost_usd": 0.00043209000000000005,
-   "tokens_in": 867,
+   "latency_ms": 1436,
+   "cost_usd": 0.00043722000000000005,
+   "tokens_in": 886,
    "tokens_out": 180
   },
   {
@@ -5423,9 +5424,9 @@
     "vat_huf": 161919,
     "gross_total_huf": 761619
    },
-   "latency_ms": 1768,
-   "cost_usd": 0.0005129900000000001,
-   "tokens_in": 967,
+   "latency_ms": 1713,
+   "cost_usd": 0.0005181200000000002,
+   "tokens_in": 986,
    "tokens_out": 229
   },
   {
@@ -5463,9 +5464,9 @@
     "payout_iban": "HU72173238487114570646443979",
     "signed_date": "2026-10-26"
    },
-   "latency_ms": 1693,
-   "cost_usd": 0.00043045000000000003,
-   "tokens_in": 865,
+   "latency_ms": 1897,
+   "cost_usd": 0.00043558000000000003,
+   "tokens_in": 884,
    "tokens_out": 179
   },
   {
@@ -5552,10 +5553,10 @@
     "vat_huf": 121851,
     "gross_total_huf": 573151
    },
-   "latency_ms": 1837,
-   "cost_usd": 0.0005590500000000001,
-   "tokens_in": 995,
-   "tokens_out": 264
+   "latency_ms": 1974,
+   "cost_usd": 0.0006290800000000001,
+   "tokens_in": 1014,
+   "tokens_out": 323
   },
   {
    "doc_id": "KH-2026-10213-1",
@@ -5592,9 +5593,9 @@
     "payout_iban": "HU30042017445292755529856025",
     "signed_date": "2026-10-29"
    },
-   "latency_ms": 1532,
-   "cost_usd": 0.0004236,
-   "tokens_in": 860,
+   "latency_ms": 1535,
+   "cost_usd": 0.00042873,
+   "tokens_in": 879,
    "tokens_out": 174
   },
   {
@@ -5651,10 +5652,10 @@
     "vat_huf": 61020,
     "gross_total_huf": 287020
    },
-   "latency_ms": 1512,
-   "cost_usd": 0.00043835,
-   "tokens_in": 935,
-   "tokens_out": 169
+   "latency_ms": 1438,
+   "cost_usd": 0.00048308000000000004,
+   "tokens_in": 954,
+   "tokens_out": 205
   },
   {
    "doc_id": "KH-2026-10213-3",
@@ -5692,25 +5693,22 @@
     },
     "circumstances_a": [
      "A: parkolóhelyről kiállt",
-     "A: egyenesen haladt",
      "A: sávot váltott",
      "A: kanyarodott",
      "A: tolatott"
     ],
     "circumstances_b": [
-     "B: parkolóhelyről kiállt",
-     "B: egyenesen haladt",
-     "B: sávot váltott",
-     "B: kanyarodott",
-     "B: tolatott"
+     "B: álló helyzetben volt",
+     "B: hátulról ütközött",
+     "B: elsőbbséget nem adott"
     ],
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1620,
-   "cost_usd": 0.00048400000000000006,
-   "tokens_in": 880,
-   "tokens_out": 224
+   "latency_ms": 1604,
+   "cost_usd": 0.00046603000000000004,
+   "tokens_in": 899,
+   "tokens_out": 203
   },
   {
    "doc_id": "KH-2026-10218-1",
@@ -5747,9 +5745,9 @@
     "payout_iban": "HU09311662984171278956768368",
     "signed_date": "2024-06-19"
    },
-   "latency_ms": 1537,
-   "cost_usd": 0.00038930000000000003,
-   "tokens_in": 790,
+   "latency_ms": 1299,
+   "cost_usd": 0.00039443000000000003,
+   "tokens_in": 809,
    "tokens_out": 160
   },
   {
@@ -5816,10 +5814,10 @@
     "vat_huf": 85266,
     "gross_total_huf": 401066
    },
-   "latency_ms": 1605,
-   "cost_usd": 0.00058096,
-   "tokens_in": 958,
-   "tokens_out": 293
+   "latency_ms": 1627,
+   "cost_usd": 0.00054319,
+   "tokens_in": 977,
+   "tokens_out": 254
   },
   {
    "doc_id": "KH-2026-10219-1",
@@ -5856,9 +5854,9 @@
     "payout_iban": "HU45548769609013003521088633",
     "signed_date": "2023-08-04"
    },
-   "latency_ms": 1541,
-   "cost_usd": 0.00042304,
-   "tokens_in": 862,
+   "latency_ms": 1542,
+   "cost_usd": 0.00042817,
+   "tokens_in": 881,
    "tokens_out": 173
   },
   {
@@ -5915,9 +5913,9 @@
     "vat_huf": 87264,
     "gross_total_huf": 410464
    },
-   "latency_ms": 1443,
-   "cost_usd": 0.00047878000000000005,
-   "tokens_in": 934,
+   "latency_ms": 1603,
+   "cost_usd": 0.00048391000000000005,
+   "tokens_in": 953,
    "tokens_out": 206
   },
   {
@@ -5955,9 +5953,9 @@
     "payout_iban": "HU13786858059418315663147575",
     "signed_date": "2024-06-28"
    },
-   "latency_ms": 1756,
-   "cost_usd": 0.00043045000000000003,
-   "tokens_in": 865,
+   "latency_ms": 1677,
+   "cost_usd": 0.00043558000000000003,
+   "tokens_in": 884,
    "tokens_out": 179
   },
   {
@@ -6024,10 +6022,10 @@
     "vat_huf": 35883,
     "gross_total_huf": 168783
    },
-   "latency_ms": 1531,
-   "cost_usd": 0.0004891,
-   "tokens_in": 960,
-   "tokens_out": 209
+   "latency_ms": 1700,
+   "cost_usd": 0.0005415300000000001,
+   "tokens_in": 979,
+   "tokens_out": 252
   },
   {
    "doc_id": "KH-2026-10221-3",
@@ -6072,9 +6070,9 @@
     "injuries": true,
     "witnesses": true
    },
-   "latency_ms": 1247,
-   "cost_usd": 0.00041408000000000005,
-   "tokens_in": 894,
+   "latency_ms": 1534,
+   "cost_usd": 0.00041921000000000005,
+   "tokens_in": 913,
    "tokens_out": 157
   },
   {
@@ -6112,9 +6110,9 @@
     "payout_iban": "HU49938180152823783179874227",
     "signed_date": "2024-05-12"
    },
-   "latency_ms": 1869,
-   "cost_usd": 0.00043456000000000007,
-   "tokens_in": 868,
+   "latency_ms": 1662,
+   "cost_usd": 0.00043969000000000007,
+   "tokens_in": 887,
    "tokens_out": 182
   },
   {
@@ -6181,10 +6179,10 @@
     "vat_huf": 156816,
     "gross_total_huf": 737616
    },
-   "latency_ms": 1294,
-   "cost_usd": 0.00048142000000000004,
-   "tokens_in": 956,
-   "tokens_out": 203
+   "latency_ms": 1709,
+   "cost_usd": 0.0005349500000000001,
+   "tokens_in": 975,
+   "tokens_out": 247
   },
   {
    "doc_id": "KH-2026-10228-1",
@@ -6221,9 +6219,9 @@
     "payout_iban": "HU71961322640602927820010361",
     "signed_date": "2025-05-24"
    },
-   "latency_ms": 1550,
-   "cost_usd": 0.00045482000000000004,
-   "tokens_in": 886,
+   "latency_ms": 1390,
+   "cost_usd": 0.00045995000000000004,
+   "tokens_in": 905,
    "tokens_out": 196
   },
   {
@@ -6300,10 +6298,10 @@
     "vat_huf": 158085,
     "gross_total_huf": 743585
    },
-   "latency_ms": 1779,
-   "cost_usd": 0.0005170800000000001,
-   "tokens_in": 974,
-   "tokens_out": 231
+   "latency_ms": 1870,
+   "cost_usd": 0.0005783100000000001,
+   "tokens_in": 993,
+   "tokens_out": 282
   },
   {
    "doc_id": "KH-2026-10231-1",
@@ -6340,9 +6338,9 @@
     "payout_iban": "HU65192735336553985715771101",
     "signed_date": "2026-06-20"
    },
-   "latency_ms": 1276,
-   "cost_usd": 0.00040579000000000006,
-   "tokens_in": 847,
+   "latency_ms": 1564,
+   "cost_usd": 0.00041092000000000006,
+   "tokens_in": 866,
    "tokens_out": 161
   },
   {
@@ -6429,10 +6427,10 @@
     "vat_huf": 152253,
     "gross_total_huf": 716153
    },
-   "latency_ms": 1542,
-   "cost_usd": 0.00055525,
-   "tokens_in": 985,
-   "tokens_out": 263
+   "latency_ms": 1969,
+   "cost_usd": 0.0006252800000000001,
+   "tokens_in": 1004,
+   "tokens_out": 322
   },
   {
    "doc_id": "KH-2026-10231-3",
@@ -6477,10 +6475,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1541,
-   "cost_usd": 0.00044106000000000006,
-   "tokens_in": 888,
-   "tokens_out": 183
+   "latency_ms": 1456,
+   "cost_usd": 0.00041209000000000005,
+   "tokens_in": 907,
+   "tokens_out": 152
   },
   {
    "doc_id": "KH-2026-10233-1",
@@ -6517,9 +6515,9 @@
     "payout_iban": "HU71657763272468043283618583",
     "signed_date": "2025-07-15"
    },
-   "latency_ms": 1918,
-   "cost_usd": 0.00042771000000000004,
-   "tokens_in": 863,
+   "latency_ms": 1368,
+   "cost_usd": 0.00043284000000000004,
+   "tokens_in": 882,
    "tokens_out": 177
   },
   {
@@ -6596,9 +6594,9 @@
     "vat_huf": 126090,
     "gross_total_huf": 593090
    },
-   "latency_ms": 1270,
-   "cost_usd": 0.00051245,
-   "tokens_in": 965,
+   "latency_ms": 1567,
+   "cost_usd": 0.00051758,
+   "tokens_in": 984,
    "tokens_out": 229
   },
   {
@@ -6636,9 +6634,9 @@
     "payout_iban": "HU66432200620212580560027657",
     "signed_date": "2026-06-04"
    },
-   "latency_ms": 1411,
-   "cost_usd": 0.00039889000000000005,
-   "tokens_in": 797,
+   "latency_ms": 1437,
+   "cost_usd": 0.00040402000000000005,
+   "tokens_in": 816,
    "tokens_out": 167
   },
   {
@@ -6705,9 +6703,9 @@
     "vat_huf": 55134,
     "gross_total_huf": 259334
    },
-   "latency_ms": 1356,
-   "cost_usd": 0.00048800000000000004,
-   "tokens_in": 960,
+   "latency_ms": 1837,
+   "cost_usd": 0.00049313,
+   "tokens_in": 979,
    "tokens_out": 208
   },
   {
@@ -6745,9 +6743,9 @@
     "payout_iban": "HU09749836250481604358893689",
     "signed_date": "2026-07-10"
    },
-   "latency_ms": 1435,
-   "cost_usd": 0.00042634000000000004,
-   "tokens_in": 862,
+   "latency_ms": 1675,
+   "cost_usd": 0.00043147000000000004,
+   "tokens_in": 881,
    "tokens_out": 176
   },
   {
@@ -6824,9 +6822,9 @@
     "vat_huf": 77166,
     "gross_total_huf": 362966
    },
-   "latency_ms": 1781,
-   "cost_usd": 0.0005204000000000001,
-   "tokens_in": 970,
+   "latency_ms": 1536,
+   "cost_usd": 0.00052553,
+   "tokens_in": 989,
    "tokens_out": 235
   },
   {
@@ -6864,9 +6862,9 @@
     "payout_iban": "HU89116516879208746623295874",
     "signed_date": "2024-11-22"
    },
-   "latency_ms": 1537,
-   "cost_usd": 0.00041812,
-   "tokens_in": 856,
+   "latency_ms": 1884,
+   "cost_usd": 0.00042325000000000007,
+   "tokens_in": 875,
    "tokens_out": 170
   },
   {
@@ -6953,10 +6951,10 @@
     "vat_huf": 190458,
     "gross_total_huf": 895858
    },
-   "latency_ms": 1835,
-   "cost_usd": 0.00068557,
-   "tokens_in": 991,
-   "tokens_out": 380
+   "latency_ms": 1913,
+   "cost_usd": 0.0006522,
+   "tokens_in": 1010,
+   "tokens_out": 345
   },
   {
    "doc_id": "KH-2026-10247-3",
@@ -7001,10 +6999,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1470,
-   "cost_usd": 0.00044627,
-   "tokens_in": 891,
-   "tokens_out": 187
+   "latency_ms": 1546,
+   "cost_usd": 0.00041730000000000006,
+   "tokens_in": 910,
+   "tokens_out": 156
   },
   {
    "doc_id": "KH-2026-10249-1",
@@ -7012,8 +7010,8 @@
    "text_method": "ocr",
    "error": null,
    "checks": {
-    "policy_number": true,
-    "claimant_name": true,
+    "policy_number": false,
+    "claimant_name": false,
     "address": true,
     "phone": true,
     "email": true,
@@ -7027,8 +7025,8 @@
     "signed_date": true
    },
    "got": {
-    "policy_number": "KH-CASCO-2026-986362",
-    "claimant_name": "Horváth Zoltán",
+    "policy_number": "KH-CASCO - 2026 - 986362",
+    "claimant_name": "Horvath Zoltan",
     "address": "4024 Debrecen, Bajcsy-Zsilinszky út 107.",
     "phone": "+36 20 882 4467",
     "email": "zoltan.horvath16@citromail.hu",
@@ -7041,10 +7039,10 @@
     "payout_iban": "HU65876732699360139774034223",
     "signed_date": "2026-10-28"
    },
-   "latency_ms": 1687,
-   "cost_usd": 0.0004435500000000001,
-   "tokens_in": 885,
-   "tokens_out": 186
+   "latency_ms": 1469,
+   "cost_usd": 0.00045088,
+   "tokens_in": 904,
+   "tokens_out": 188
   },
   {
    "doc_id": "KH-2026-10249-2",
@@ -7130,10 +7128,10 @@
     "vat_huf": 196668,
     "gross_total_huf": 925068
    },
-   "latency_ms": 1745,
-   "cost_usd": 0.0005576800000000001,
-   "tokens_in": 994,
-   "tokens_out": 263
+   "latency_ms": 1857,
+   "cost_usd": 0.0006277100000000001,
+   "tokens_in": 1013,
+   "tokens_out": 322
   },
   {
    "doc_id": "KH-2026-10249-3",
@@ -7170,21 +7168,22 @@
      "driver_name": "Horváth Zoltán"
     },
     "circumstances_a": [
-     "A: egyenesen haladt",
-     "A: sávot váltott"
+     "A: parkoldéhelyrél kiállt",
+     "A: sávot váltott",
+     "A: hátulról ütközött"
     ],
     "circumstances_b": [
      "B: parkolóhelyről kiállt",
-     "B: egyenesen haladt",
+     "B: sávot váltott",
      "B: hátulról ütközött"
     ],
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1903,
-   "cost_usd": 0.00044486,
-   "tokens_in": 898,
-   "tokens_out": 184
+   "latency_ms": 1704,
+   "cost_usd": 0.00046979000000000004,
+   "tokens_in": 917,
+   "tokens_out": 202
   },
   {
    "doc_id": "KH-2026-10274-1",
@@ -7221,9 +7220,9 @@
     "payout_iban": "HU56665023855351675910678368",
     "signed_date": "2025-12-24"
    },
-   "latency_ms": 1690,
-   "cost_usd": 0.00039777000000000004,
-   "tokens_in": 801,
+   "latency_ms": 1564,
+   "cost_usd": 0.00040290000000000004,
+   "tokens_in": 820,
    "tokens_out": 165
   },
   {
@@ -7300,10 +7299,10 @@
     "vat_huf": 83457,
     "gross_total_huf": 392557
    },
-   "latency_ms": 1319,
-   "cost_usd": 0.0005170800000000001,
-   "tokens_in": 974,
-   "tokens_out": 231
+   "latency_ms": 1946,
+   "cost_usd": 0.00057941,
+   "tokens_in": 993,
+   "tokens_out": 283
   },
   {
    "doc_id": "KH-2026-10274-3",
@@ -7348,9 +7347,9 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1001,
-   "cost_usd": 0.0004,
-   "tokens_in": 850,
+   "latency_ms": 1389,
+   "cost_usd": 0.00040513,
+   "tokens_in": 869,
    "tokens_out": 155
   },
   {
@@ -7388,9 +7387,9 @@
     "payout_iban": "HU40632864122828917442281764",
     "signed_date": "2024-06-09"
    },
-   "latency_ms": 1256,
-   "cost_usd": 0.000403,
-   "tokens_in": 800,
+   "latency_ms": 1613,
+   "cost_usd": 0.00040813000000000004,
+   "tokens_in": 819,
    "tokens_out": 170
   },
   {
@@ -7447,10 +7446,10 @@
     "vat_huf": 38205,
     "gross_total_huf": 179705
    },
-   "latency_ms": 1615,
-   "cost_usd": 0.00044960000000000003,
-   "tokens_in": 940,
-   "tokens_out": 178
+   "latency_ms": 1719,
+   "cost_usd": 0.0004943300000000001,
+   "tokens_in": 959,
+   "tokens_out": 214
   },
   {
    "doc_id": "KH-2026-10283-3",
@@ -7495,10 +7494,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1157,
-   "cost_usd": 0.00043547000000000003,
-   "tokens_in": 851,
-   "tokens_out": 187
+   "latency_ms": 1393,
+   "cost_usd": 0.0004065,
+   "tokens_in": 870,
+   "tokens_out": 156
   },
   {
    "doc_id": "KH-2026-10285-1",
@@ -7535,9 +7534,9 @@
     "payout_iban": "HU10142161121313329541964323",
     "signed_date": "2026-09-02"
    },
-   "latency_ms": 1271,
-   "cost_usd": 0.00042497000000000005,
-   "tokens_in": 861,
+   "latency_ms": 1690,
+   "cost_usd": 0.00043010000000000005,
+   "tokens_in": 880,
    "tokens_out": 175
   },
   {
@@ -7614,9 +7613,9 @@
     "vat_huf": 180927,
     "gross_total_huf": 851027
    },
-   "latency_ms": 1512,
-   "cost_usd": 0.0005250300000000001,
-   "tokens_in": 979,
+   "latency_ms": 1435,
+   "cost_usd": 0.0005301600000000001,
+   "tokens_in": 998,
    "tokens_out": 237
   },
   {
@@ -7654,9 +7653,9 @@
     "payout_iban": "HU62159892497228652271932897",
     "signed_date": "2026-02-09"
    },
-   "latency_ms": 1451,
-   "cost_usd": 0.00042634000000000004,
-   "tokens_in": 862,
+   "latency_ms": 1564,
+   "cost_usd": 0.00043147000000000004,
+   "tokens_in": 881,
    "tokens_out": 176
   },
   {
@@ -7723,10 +7722,10 @@
     "vat_huf": 60669,
     "gross_total_huf": 285369
    },
-   "latency_ms": 1444,
-   "cost_usd": 0.0005697100000000001,
-   "tokens_in": 953,
-   "tokens_out": 284
+   "latency_ms": 1656,
+   "cost_usd": 0.0005319400000000001,
+   "tokens_in": 972,
+   "tokens_out": 245
   },
   {
    "doc_id": "KH-2026-10289-1",
@@ -7763,9 +7762,9 @@
     "payout_iban": "HU13883800801127915307012335",
     "signed_date": "2026-02-21"
    },
-   "latency_ms": 1599,
-   "cost_usd": 0.00044770000000000004,
-   "tokens_in": 880,
+   "latency_ms": 1676,
+   "cost_usd": 0.00045283000000000004,
+   "tokens_in": 899,
    "tokens_out": 191
   },
   {
@@ -7832,10 +7831,10 @@
     "vat_huf": 138834,
     "gross_total_huf": 653034
    },
-   "latency_ms": 1446,
-   "cost_usd": 0.00047729000000000006,
-   "tokens_in": 957,
-   "tokens_out": 199
+   "latency_ms": 1736,
+   "cost_usd": 0.0005308200000000001,
+   "tokens_in": 976,
+   "tokens_out": 243
   },
   {
    "doc_id": "KH-2026-10290-1",
@@ -7872,9 +7871,9 @@
     "payout_iban": "HU21251164271458362078807850",
     "signed_date": "2025-02-18"
    },
-   "latency_ms": 1590,
-   "cost_usd": 0.00046497000000000004,
-   "tokens_in": 891,
+   "latency_ms": 1624,
+   "cost_usd": 0.00047010000000000004,
+   "tokens_in": 910,
    "tokens_out": 204
   },
   {
@@ -7931,10 +7930,10 @@
     "vat_huf": 59184,
     "gross_total_huf": 278384
    },
-   "latency_ms": 1664,
-   "cost_usd": 0.0005191700000000001,
-   "tokens_in": 941,
-   "tokens_out": 241
+   "latency_ms": 1247,
+   "cost_usd": 0.0004506,
+   "tokens_in": 960,
+   "tokens_out": 174
   },
   {
    "doc_id": "KH-2026-10290-3",
@@ -7979,10 +7978,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1548,
-   "cost_usd": 0.00045613,
-   "tokens_in": 899,
-   "tokens_out": 194
+   "latency_ms": 1710,
+   "cost_usd": 0.00042716000000000005,
+   "tokens_in": 918,
+   "tokens_out": 163
   },
   {
    "doc_id": "KH-2026-10299-1",
@@ -8019,9 +8018,9 @@
     "payout_iban": "HU24346841420929605456073175",
     "signed_date": "2025-08-28"
    },
-   "latency_ms": 1359,
-   "cost_usd": 0.0004318200000000001,
-   "tokens_in": 866,
+   "latency_ms": 1550,
+   "cost_usd": 0.00043695,
+   "tokens_in": 885,
    "tokens_out": 180
   },
   {
@@ -8088,10 +8087,10 @@
     "vat_huf": 88371,
     "gross_total_huf": 415671
    },
-   "latency_ms": 1641,
-   "cost_usd": 0.0004913000000000001,
-   "tokens_in": 960,
-   "tokens_out": 211
+   "latency_ms": 1688,
+   "cost_usd": 0.0005866300000000001,
+   "tokens_in": 979,
+   "tokens_out": 293
   },
   {
    "doc_id": "KH-2026-10299-3",
@@ -8132,15 +8131,16 @@
      "A: hátulról ütközött"
     ],
     "circumstances_b": [
-     "B: álló helyzetben volt"
+     "B: egyenesen haladt",
+     "B: hátulról ütközött"
     ],
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1326,
-   "cost_usd": 0.00045343000000000005,
-   "tokens_in": 889,
-   "tokens_out": 194
+   "latency_ms": 1878,
+   "cost_usd": 0.00047286,
+   "tokens_in": 908,
+   "tokens_out": 207
   },
   {
    "doc_id": "KH-2026-10304-1",
@@ -8177,9 +8177,9 @@
     "payout_iban": "HU40048710364106252789007715",
     "signed_date": "2026-10-27"
    },
-   "latency_ms": 1716,
-   "cost_usd": 0.00043398000000000004,
-   "tokens_in": 874,
+   "latency_ms": 1697,
+   "cost_usd": 0.00043911,
+   "tokens_in": 893,
    "tokens_out": 180
   },
   {
@@ -8246,10 +8246,10 @@
     "vat_huf": 63450,
     "gross_total_huf": 298450
    },
-   "latency_ms": 1416,
-   "cost_usd": 0.0004926500000000001,
-   "tokens_in": 965,
-   "tokens_out": 211
+   "latency_ms": 1703,
+   "cost_usd": 0.0005461800000000001,
+   "tokens_in": 984,
+   "tokens_out": 255
   },
   {
    "doc_id": "KH-2026-10304-3",
@@ -8294,9 +8294,9 @@
     "injuries": true,
     "witnesses": false
    },
-   "latency_ms": 1248,
-   "cost_usd": 0.00041107000000000003,
-   "tokens_in": 891,
+   "latency_ms": 1411,
+   "cost_usd": 0.00041620000000000003,
+   "tokens_in": 910,
    "tokens_out": 155
   },
   {
@@ -8334,10 +8334,10 @@
     "payout_iban": "HU68813520635358767229073157",
     "signed_date": "2025-05-14"
    },
-   "latency_ms": 1358,
-   "cost_usd": 0.00042499000000000004,
-   "tokens_in": 857,
-   "tokens_out": 176
+   "latency_ms": 1599,
+   "cost_usd": 0.00047082000000000005,
+   "tokens_in": 876,
+   "tokens_out": 213
   },
   {
    "doc_id": "KH-2026-10305-2",
@@ -8413,9 +8413,9 @@
     "vat_huf": 144990,
     "gross_total_huf": 681990
    },
-   "latency_ms": 1388,
-   "cost_usd": 0.0005201100000000002,
-   "tokens_in": 973,
+   "latency_ms": 1673,
+   "cost_usd": 0.0005252400000000001,
+   "tokens_in": 992,
    "tokens_out": 234
   },
   {
@@ -8453,15 +8453,13 @@
      "driver_name": "Rácz László"
     },
     "circumstances_a": [
-     "A: álló helyzetben volt",
      "A: parkolóhelyről kiállt",
-     "A: sávot váltott",
+     "A: egyenesen haladt",
      "A: hátulról ütközött",
      "A: kanyarodott",
      "A: tolatott"
     ],
     "circumstances_b": [
-     "B: álló helyzetben volt",
      "B: parkolóhelyről kiállt",
      "B: egyenesen haladt",
      "B: kanyarodott",
@@ -8470,10 +8468,10 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1582,
-   "cost_usd": 0.00055272,
-   "tokens_in": 886,
-   "tokens_out": 285
+   "latency_ms": 1695,
+   "cost_usd": 0.00053255,
+   "tokens_in": 905,
+   "tokens_out": 262
   },
   {
    "doc_id": "KH-2026-10307-1",
@@ -8510,9 +8508,9 @@
     "payout_iban": "HU45517971588903979495907223",
     "signed_date": "2025-04-22"
    },
-   "latency_ms": 1230,
-   "cost_usd": 0.00041868000000000005,
-   "tokens_in": 854,
+   "latency_ms": 1484,
+   "cost_usd": 0.00042381000000000005,
+   "tokens_in": 873,
    "tokens_out": 171
   },
   {
@@ -8569,9 +8567,9 @@
     "vat_huf": 57753,
     "gross_total_huf": 271653
    },
-   "latency_ms": 1371,
-   "cost_usd": 0.0004389100000000001,
-   "tokens_in": 933,
+   "latency_ms": 1369,
+   "cost_usd": 0.0004440400000000001,
+   "tokens_in": 952,
    "tokens_out": 170
   },
   {
@@ -8609,23 +8607,21 @@
      "driver_name": "Molnár József"
     },
     "circumstances_a": [
-     "A: parkolóhelyről kiállt",
+     "A: egyenesen haladt",
      "A: hátulról ütközött",
-     "A: tolatott",
      "A: elsőbbséget nem adott"
     ],
     "circumstances_b": [
-     "B: parkolóhelyről kiállt",
-     "B: hátulról ütközött",
-     "B: elsőbbséget nem adott"
+     "B: egyenesen haladt",
+     "B: hátulról ütközött"
     ],
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1673,
-   "cost_usd": 0.0005150500000000001,
-   "tokens_in": 885,
-   "tokens_out": 251
+   "latency_ms": 1705,
+   "cost_usd": 0.00048828,
+   "tokens_in": 904,
+   "tokens_out": 222
   },
   {
    "doc_id": "KH-2026-10310-1",
@@ -8662,9 +8658,9 @@
     "payout_iban": "HU53144958746708088796276461",
     "signed_date": "2023-09-25"
    },
-   "latency_ms": 1483,
-   "cost_usd": 0.00040026,
-   "tokens_in": 798,
+   "latency_ms": 1642,
+   "cost_usd": 0.00040539,
+   "tokens_in": 817,
    "tokens_out": 168
   },
   {
@@ -8721,10 +8717,10 @@
     "vat_huf": 45765,
     "gross_total_huf": 215265
    },
-   "latency_ms": 1388,
-   "cost_usd": 0.00044852000000000005,
-   "tokens_in": 936,
-   "tokens_out": 178
+   "latency_ms": 1669,
+   "cost_usd": 0.00049325,
+   "tokens_in": 955,
+   "tokens_out": 214
   },
   {
    "doc_id": "KH-2026-10310-3",
@@ -8769,9 +8765,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1513,
-   "cost_usd": 0.00040301,
-   "tokens_in": 853,
+   "latency_ms": 1501,
+   "cost_usd": 0.00040814000000000003,
+   "tokens_in": 872,
    "tokens_out": 157
   },
   {
@@ -8809,9 +8805,9 @@
     "payout_iban": "HU85526018159083016613186091",
     "signed_date": "2024-11-07"
    },
-   "latency_ms": 1195,
-   "cost_usd": 0.0004003100000000001,
-   "tokens_in": 843,
+   "latency_ms": 1436,
+   "cost_usd": 0.0004054400000000001,
+   "tokens_in": 862,
    "tokens_out": 157
   },
   {
@@ -8868,10 +8864,10 @@
     "vat_huf": 83943,
     "gross_total_huf": 394843
    },
-   "latency_ms": 1429,
-   "cost_usd": 0.0005118000000000001,
-   "tokens_in": 930,
-   "tokens_out": 237
+   "latency_ms": 1528,
+   "cost_usd": 0.00044323,
+   "tokens_in": 949,
+   "tokens_out": 170
   },
   {
    "doc_id": "KH-2026-10327-1",
@@ -8908,9 +8904,9 @@
     "payout_iban": "HU25173125976194510807525316",
     "signed_date": "2026-10-31"
    },
-   "latency_ms": 1677,
-   "cost_usd": 0.00046140000000000005,
-   "tokens_in": 890,
+   "latency_ms": 1648,
+   "cost_usd": 0.00046653000000000005,
+   "tokens_in": 909,
    "tokens_out": 201
   },
   {
@@ -8977,10 +8973,10 @@
     "vat_huf": 168939,
     "gross_total_huf": 794639
    },
-   "latency_ms": 1474,
-   "cost_usd": 0.00048551,
-   "tokens_in": 963,
-   "tokens_out": 205
+   "latency_ms": 1752,
+   "cost_usd": 0.0005390400000000001,
+   "tokens_in": 982,
+   "tokens_out": 249
   },
   {
    "doc_id": "KH-2026-10329-1",
@@ -9017,9 +9013,9 @@
     "payout_iban": "HU06379562875936693289934140",
     "signed_date": "2026-10-28"
    },
-   "latency_ms": 1268,
-   "cost_usd": 0.00040853000000000005,
-   "tokens_in": 849,
+   "latency_ms": 1536,
+   "cost_usd": 0.00041366000000000005,
+   "tokens_in": 868,
    "tokens_out": 163
   },
   {
@@ -9096,9 +9092,9 @@
     "vat_huf": 116937,
     "gross_total_huf": 550037
    },
-   "latency_ms": 1374,
-   "cost_usd": 0.00051577,
-   "tokens_in": 961,
+   "latency_ms": 1486,
+   "cost_usd": 0.0005209000000000001,
+   "tokens_in": 980,
    "tokens_out": 233
   },
   {
@@ -9136,9 +9132,9 @@
     "payout_iban": "HU54375963188828021323284893",
     "signed_date": "2026-10-27"
    },
-   "latency_ms": 1697,
-   "cost_usd": 0.00046086,
-   "tokens_in": 888,
+   "latency_ms": 1582,
+   "cost_usd": 0.00046599,
+   "tokens_in": 907,
    "tokens_out": 201
   },
   {
@@ -9205,9 +9201,9 @@
     "vat_huf": 87318,
     "gross_total_huf": 410718
    },
-   "latency_ms": 1630,
-   "cost_usd": 0.00048223,
-   "tokens_in": 959,
+   "latency_ms": 1619,
+   "cost_usd": 0.00048736,
+   "tokens_in": 978,
    "tokens_out": 203
   },
   {
@@ -9253,10 +9249,10 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1259,
-   "cost_usd": 0.00042340000000000005,
-   "tokens_in": 900,
-   "tokens_out": 164
+   "latency_ms": 1499,
+   "cost_usd": 0.00046263000000000006,
+   "tokens_in": 919,
+   "tokens_out": 195
   },
   {
    "doc_id": "KH-2026-10338-1",
@@ -9293,9 +9289,9 @@
     "payout_iban": "HU88234378615814541365733105",
     "signed_date": "2024-03-12"
    },
-   "latency_ms": 1424,
-   "cost_usd": 0.0004203000000000001,
-   "tokens_in": 860,
+   "latency_ms": 1680,
+   "cost_usd": 0.0004254300000000001,
+   "tokens_in": 879,
    "tokens_out": 171
   },
   {
@@ -9317,7 +9313,7 @@
     "line_items.0.unit_price_huf": true,
     "line_items.0.net_huf": true,
     "line_items.1.description": true,
-    "line_items.1.quantity": true,
+    "line_items.1.quantity": false,
     "line_items.1.unit_price_huf": true,
     "line_items.1.net_huf": true,
     "line_items.2.description": true,
@@ -9350,7 +9346,7 @@
      },
      {
       "description": "Ajtó, jobb első",
-      "quantity": 1,
+      "quantity": 7,
       "unit_price_huf": 259800,
       "net_huf": 259800
      },
@@ -9372,10 +9368,10 @@
     "vat_huf": 179712,
     "gross_total_huf": 845312
    },
-   "latency_ms": 1584,
-   "cost_usd": 0.00052231,
-   "tokens_in": 973,
-   "tokens_out": 236
+   "latency_ms": 1726,
+   "cost_usd": 0.0005835400000000001,
+   "tokens_in": 992,
+   "tokens_out": 287
   },
   {
    "doc_id": "KH-2026-10341-1",
@@ -9412,9 +9408,9 @@
     "payout_iban": "HU26442883343915104304382845",
     "signed_date": "2025-07-03"
    },
-   "latency_ms": 1584,
-   "cost_usd": 0.00042196000000000003,
-   "tokens_in": 858,
+   "latency_ms": 1532,
+   "cost_usd": 0.00042709000000000003,
+   "tokens_in": 877,
    "tokens_out": 173
   },
   {
@@ -9491,9 +9487,9 @@
     "vat_huf": 117099,
     "gross_total_huf": 550799
    },
-   "latency_ms": 1534,
-   "cost_usd": 0.0005151700000000001,
-   "tokens_in": 971,
+   "latency_ms": 1757,
+   "cost_usd": 0.0005203,
+   "tokens_in": 990,
    "tokens_out": 230
   },
   {
@@ -9531,9 +9527,9 @@
     "payout_iban": "HU71778394613844749630429034",
     "signed_date": "2025-08-29"
    },
-   "latency_ms": 1656,
-   "cost_usd": 0.00042771000000000004,
-   "tokens_in": 863,
+   "latency_ms": 1498,
+   "cost_usd": 0.00043284000000000004,
+   "tokens_in": 882,
    "tokens_out": 177
   },
   {
@@ -9620,10 +9616,10 @@
     "vat_huf": 210897,
     "gross_total_huf": 991997
    },
-   "latency_ms": 1660,
-   "cost_usd": 0.00055305,
-   "tokens_in": 985,
-   "tokens_out": 261
+   "latency_ms": 1893,
+   "cost_usd": 0.00062308,
+   "tokens_in": 1004,
+   "tokens_out": 320
   },
   {
    "doc_id": "KH-2026-10351-1",
@@ -9660,9 +9656,9 @@
     "payout_iban": "HU86157880544462186185935852",
     "signed_date": "2024-10-06"
    },
-   "latency_ms": 1381,
-   "cost_usd": 0.00040990000000000004,
-   "tokens_in": 850,
+   "latency_ms": 1534,
+   "cost_usd": 0.00041503000000000004,
+   "tokens_in": 869,
    "tokens_out": 164
   },
   {
@@ -9739,9 +9735,9 @@
     "vat_huf": 126441,
     "gross_total_huf": 594741
    },
-   "latency_ms": 1471,
-   "cost_usd": 0.00051602,
-   "tokens_in": 966,
+   "latency_ms": 1723,
+   "cost_usd": 0.0005211500000000001,
+   "tokens_in": 985,
    "tokens_out": 232
   },
   {
@@ -9779,9 +9775,9 @@
     "payout_iban": "HU62605585998506242954553633",
     "signed_date": "2024-07-02"
    },
-   "latency_ms": 1382,
-   "cost_usd": 0.00042497000000000005,
-   "tokens_in": 861,
+   "latency_ms": 1704,
+   "cost_usd": 0.00043010000000000005,
+   "tokens_in": 880,
    "tokens_out": 175
   },
   {
@@ -9799,8 +9795,8 @@
     "plate": true,
     "line_items.count": true,
     "line_items.0.description": false,
-    "line_items.0.quantity": true,
-    "line_items.0.unit_price_huf": true,
+    "line_items.0.quantity": false,
+    "line_items.0.unit_price_huf": false,
     "line_items.0.net_huf": true,
     "line_items.1.description": false,
     "line_items.1.quantity": true,
@@ -9822,8 +9818,8 @@
     "line_items": [
      {
       "description": "Motorháztető il",
-      "quantity": 1,
-      "unit_price_huf": 487900,
+      "quantity": 487,
+      "unit_price_huf": 900,
       "net_huf": 487900
      },
      {
@@ -9838,10 +9834,10 @@
     "vat_huf": 154521,
     "gross_total_huf": 726821
    },
-   "latency_ms": 1373,
-   "cost_usd": 0.00044001000000000006,
-   "tokens_in": 933,
-   "tokens_out": 171
+   "latency_ms": 1338,
+   "cost_usd": 0.00051774,
+   "tokens_in": 952,
+   "tokens_out": 237
   },
   {
    "doc_id": "KH-2026-10355-1",
@@ -9878,9 +9874,9 @@
     "payout_iban": "HU54844690069730809003896331",
     "signed_date": "2025-04-05"
    },
-   "latency_ms": 1556,
-   "cost_usd": 0.00041949,
-   "tokens_in": 857,
+   "latency_ms": 1324,
+   "cost_usd": 0.00042462,
+   "tokens_in": 876,
    "tokens_out": 171
   },
   {
@@ -9957,10 +9953,10 @@
     "vat_huf": 166455,
     "gross_total_huf": 782955
    },
-   "latency_ms": 1479,
-   "cost_usd": 0.00051847,
-   "tokens_in": 971,
-   "tokens_out": 233
+   "latency_ms": 2041,
+   "cost_usd": 0.0006314000000000001,
+   "tokens_in": 990,
+   "tokens_out": 331
   },
   {
    "doc_id": "KH-2026-10359-1",
@@ -9997,9 +9993,9 @@
     "payout_iban": "HU12326781870090026546686739",
     "signed_date": "2025-09-11"
    },
-   "latency_ms": 1923,
-   "cost_usd": 0.00040217000000000003,
-   "tokens_in": 801,
+   "latency_ms": 1270,
+   "cost_usd": 0.00040730000000000003,
+   "tokens_in": 820,
    "tokens_out": 169
   },
   {
@@ -10066,9 +10062,9 @@
     "vat_huf": 71118,
     "gross_total_huf": 334518
    },
-   "latency_ms": 1641,
-   "cost_usd": 0.0004852800000000001,
-   "tokens_in": 954,
+   "latency_ms": 1681,
+   "cost_usd": 0.00049041,
+   "tokens_in": 973,
    "tokens_out": 207
   },
   {
@@ -10106,9 +10102,9 @@
     "payout_iban": "HU07398419770617673128715502",
     "signed_date": "2026-10-25"
    },
-   "latency_ms": 1410,
-   "cost_usd": 0.00041401,
-   "tokens_in": 853,
+   "latency_ms": 1497,
+   "cost_usd": 0.00041914000000000003,
+   "tokens_in": 872,
    "tokens_out": 167
   },
   {
@@ -10175,9 +10171,9 @@
     "vat_huf": 125091,
     "gross_total_huf": 588391
    },
-   "latency_ms": 1329,
-   "cost_usd": 0.00048611,
-   "tokens_in": 953,
+   "latency_ms": 1615,
+   "cost_usd": 0.00049124,
+   "tokens_in": 972,
    "tokens_out": 208
   },
   {
@@ -10215,8 +10211,7 @@
      "driver_name": "Németh László"
     },
     "circumstances_a": [
-     "A: parkolóhelyről kiállt",
-     "A: sávot váltott",
+     "A: hátulról ütközött",
      "A: tolatott",
      "A: elsőbbséget nem adott"
     ],
@@ -10226,10 +10221,10 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1411,
-   "cost_usd": 0.0004490300000000001,
-   "tokens_in": 889,
-   "tokens_out": 190
+   "latency_ms": 1600,
+   "cost_usd": 0.00044316000000000006,
+   "tokens_in": 908,
+   "tokens_out": 180
   },
   {
    "doc_id": "KH-2026-10384-1",
@@ -10266,9 +10261,9 @@
     "payout_iban": "HU59632358632534636070987801",
     "signed_date": "2026-03-20"
    },
-   "latency_ms": 1188,
-   "cost_usd": 0.00042908000000000003,
-   "tokens_in": 864,
+   "latency_ms": 1484,
+   "cost_usd": 0.00043421000000000003,
+   "tokens_in": 883,
    "tokens_out": 178
   },
   {
@@ -10345,10 +10340,10 @@
     "vat_huf": 151929,
     "gross_total_huf": 714629
    },
-   "latency_ms": 1510,
-   "cost_usd": 0.00052424,
-   "tokens_in": 972,
-   "tokens_out": 238
+   "latency_ms": 2159,
+   "cost_usd": 0.00058547,
+   "tokens_in": 991,
+   "tokens_out": 289
   },
   {
    "doc_id": "KH-2026-10384-3",
@@ -10393,10 +10388,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1371,
-   "cost_usd": 0.00044627,
-   "tokens_in": 891,
-   "tokens_out": 187
+   "latency_ms": 1566,
+   "cost_usd": 0.00041730000000000006,
+   "tokens_in": 910,
+   "tokens_out": 156
   },
   {
    "doc_id": "KH-2026-10387-1",
@@ -10433,9 +10428,9 @@
     "payout_iban": "HU34381236518737318953920141",
     "signed_date": "2026-06-25"
    },
-   "latency_ms": 1225,
-   "cost_usd": 0.00041537999999999997,
-   "tokens_in": 854,
+   "latency_ms": 1342,
+   "cost_usd": 0.00042050999999999997,
+   "tokens_in": 873,
    "tokens_out": 168
   },
   {
@@ -10512,10 +10507,10 @@
     "vat_huf": 155304,
     "gross_total_huf": 730504
    },
-   "latency_ms": 1324,
-   "cost_usd": 0.0005088800000000001,
-   "tokens_in": 964,
-   "tokens_out": 226
+   "latency_ms": 1814,
+   "cost_usd": 0.0005712100000000001,
+   "tokens_in": 983,
+   "tokens_out": 278
   },
   {
    "doc_id": "KH-2026-10391-1",
@@ -10552,9 +10547,9 @@
     "payout_iban": "HU90008421598841345447075721",
     "signed_date": "2024-03-08"
    },
-   "latency_ms": 1633,
-   "cost_usd": 0.00041675,
-   "tokens_in": 855,
+   "latency_ms": 1594,
+   "cost_usd": 0.00042188,
+   "tokens_in": 874,
    "tokens_out": 169
   },
   {
@@ -10572,12 +10567,12 @@
     "plate": true,
     "line_items.count": true,
     "line_items.0.description": false,
-    "line_items.0.quantity": true,
-    "line_items.0.unit_price_huf": true,
+    "line_items.0.quantity": false,
+    "line_items.0.unit_price_huf": false,
     "line_items.0.net_huf": true,
     "line_items.1.description": false,
-    "line_items.1.quantity": true,
-    "line_items.1.unit_price_huf": true,
+    "line_items.1.quantity": false,
+    "line_items.1.unit_price_huf": false,
     "line_items.1.net_huf": true,
     "line_items.2.description": true,
     "line_items.2.quantity": true,
@@ -10603,14 +10598,14 @@
     "line_items": [
      {
       "description": "Ajtó, jobb első a",
-      "quantity": 1,
-      "unit_price_huf": 110800,
+      "quantity": 110,
+      "unit_price_huf": 800,
       "net_huf": 110800
      },
      {
       "description": "Hátsó lökhárító il",
-      "quantity": 1,
-      "unit_price_huf": 100000,
+      "quantity": 100,
+      "unit_price_huf": 0,
       "net_huf": 100000
      },
      {
@@ -10631,10 +10626,10 @@
     "vat_huf": 126684,
     "gross_total_huf": 595884
    },
-   "latency_ms": 1398,
-   "cost_usd": 0.0005245299999999999,
-   "tokens_in": 969,
-   "tokens_out": 239
+   "latency_ms": 2019,
+   "cost_usd": 0.00060446,
+   "tokens_in": 988,
+   "tokens_out": 307
   },
   {
    "doc_id": "KH-2026-10393-1",
@@ -10671,9 +10666,9 @@
     "payout_iban": "HU15147154058253151880975871",
     "signed_date": "2026-10-27"
    },
-   "latency_ms": 1280,
-   "cost_usd": 0.00041127000000000004,
-   "tokens_in": 851,
+   "latency_ms": 1146,
+   "cost_usd": 0.00041640000000000004,
+   "tokens_in": 870,
    "tokens_out": 165
   },
   {
@@ -10740,10 +10735,10 @@
     "vat_huf": 138321,
     "gross_total_huf": 650621
    },
-   "latency_ms": 1684,
-   "cost_usd": 0.00047596000000000004,
-   "tokens_in": 948,
-   "tokens_out": 200
+   "latency_ms": 1650,
+   "cost_usd": 0.0005283900000000001,
+   "tokens_in": 967,
+   "tokens_out": 243
   },
   {
    "doc_id": "KH-2026-10393-3",
@@ -10788,10 +10783,10 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1168,
-   "cost_usd": 0.00040395000000000003,
-   "tokens_in": 885,
-   "tokens_out": 150
+   "latency_ms": 1366,
+   "cost_usd": 0.00044318000000000005,
+   "tokens_in": 904,
+   "tokens_out": 181
   },
   {
    "doc_id": "KH-2026-10405-1",
@@ -10800,14 +10795,14 @@
    "error": null,
    "checks": {
     "policy_number": true,
-    "claimant_name": true,
+    "claimant_name": false,
     "address": true,
     "phone": true,
     "email": true,
     "plate": false,
     "vehicle": true,
     "loss_datetime": true,
-    "loss_location": true,
+    "loss_location": false,
     "description": true,
     "estimated_amount_huf": true,
     "payout_iban": true,
@@ -10815,23 +10810,23 @@
    },
    "got": {
     "policy_number": "KH-CASCO-2023-278392",
-    "claimant_name": "Oláh Mária",
+    "claimant_name": "Olah Maria",
     "address": "8200 Veszprém, Ady Endre utca 35.",
     "phone": "+36 20 215 3422",
     "email": "maria.olah23@gmail.com",
     "plate": "AIXK-172",
     "vehicle": "Volkswagen Golf",
     "loss_datetime": "2024-12-05T11:30",
-    "loss_location": "Veszprém, Arany János utca",
+    "loss_location": "Veszprém, Arany Janos utca",
     "description": "Wildlife accident: a deer jumped in front of the car between Veszprém and the next village.",
     "estimated_amount_huf": 691000,
     "payout_iban": "HU66692015148844536820163388",
     "signed_date": "2024-12-11"
    },
-   "latency_ms": 1322,
-   "cost_usd": 0.00040462,
-   "tokens_in": 806,
-   "tokens_out": 170
+   "latency_ms": 1622,
+   "cost_usd": 0.00044935,
+   "tokens_in": 825,
+   "tokens_out": 206
   },
   {
    "doc_id": "KH-2026-10405-2",
@@ -10917,10 +10912,10 @@
     "vat_huf": 134082,
     "gross_total_huf": 630682
    },
-   "latency_ms": 2067,
-   "cost_usd": 0.00068337,
-   "tokens_in": 991,
-   "tokens_out": 378
+   "latency_ms": 1945,
+   "cost_usd": 0.00065,
+   "tokens_in": 1010,
+   "tokens_out": 343
   },
   {
    "doc_id": "KH-2026-10406-1",
@@ -10957,9 +10952,9 @@
     "payout_iban": "HU31704981014810248109842912",
     "signed_date": "2026-10-27"
    },
-   "latency_ms": 1590,
-   "cost_usd": 0.0004236,
-   "tokens_in": 860,
+   "latency_ms": 1353,
+   "cost_usd": 0.00042873,
+   "tokens_in": 879,
    "tokens_out": 174
   },
   {
@@ -11016,10 +11011,10 @@
     "vat_huf": 52920,
     "gross_total_huf": 248920
    },
-   "latency_ms": 1628,
-   "cost_usd": 0.00044194000000000004,
-   "tokens_in": 932,
-   "tokens_out": 173
+   "latency_ms": 1436,
+   "cost_usd": 0.0004866700000000001,
+   "tokens_in": 951,
+   "tokens_out": 209
   },
   {
    "doc_id": "KH-2026-10406-3",
@@ -11055,22 +11050,15 @@
      "insurer": "Orion Biztosító",
      "driver_name": "Győri Judit"
     },
-    "circumstances_a": [
-     "A: parkolóhelyről kiállt",
-     "A: sávot váltott",
-     "A: elsőbbséget nem adott"
-    ],
-    "circumstances_b": [
-     "B: parkolóhelyről kiállt",
-     "B: hátulról ütközött"
-    ],
+    "circumstances_a": [],
+    "circumstances_b": [],
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1655,
-   "cost_usd": 0.00045673,
-   "tokens_in": 889,
-   "tokens_out": 197
+   "latency_ms": 1424,
+   "cost_usd": 0.00039696,
+   "tokens_in": 908,
+   "tokens_out": 138
   },
   {
    "doc_id": "KH-2026-10415-1",
@@ -11107,9 +11095,9 @@
     "payout_iban": "HU42915319315517732601513812",
     "signed_date": "2026-10-28"
    },
-   "latency_ms": 1444,
-   "cost_usd": 0.00039532000000000006,
-   "tokens_in": 796,
+   "latency_ms": 1758,
+   "cost_usd": 0.00040045000000000006,
+   "tokens_in": 815,
    "tokens_out": 164
   },
   {
@@ -11196,10 +11184,10 @@
     "vat_huf": 145773,
     "gross_total_huf": 685673
    },
-   "latency_ms": 1818,
-   "cost_usd": 0.0005535900000000001,
-   "tokens_in": 987,
-   "tokens_out": 261
+   "latency_ms": 2120,
+   "cost_usd": 0.0006456200000000001,
+   "tokens_in": 1006,
+   "tokens_out": 340
   },
   {
    "doc_id": "KH-2026-10416-1",
@@ -11236,9 +11224,9 @@
     "payout_iban": "HU20040306577787640338737571",
     "signed_date": "2024-11-14"
    },
-   "latency_ms": 1348,
-   "cost_usd": 0.00041812,
-   "tokens_in": 856,
+   "latency_ms": 1710,
+   "cost_usd": 0.00042325000000000007,
+   "tokens_in": 875,
    "tokens_out": 170
   },
   {
@@ -11325,10 +11313,10 @@
     "vat_huf": 119502,
     "gross_total_huf": 562102
    },
-   "latency_ms": 2117,
-   "cost_usd": 0.00068227,
-   "tokens_in": 991,
-   "tokens_out": 377
+   "latency_ms": 1845,
+   "cost_usd": 0.0006489000000000001,
+   "tokens_in": 1010,
+   "tokens_out": 342
   },
   {
    "doc_id": "KH-2026-10419-1",
@@ -11365,9 +11353,9 @@
     "payout_iban": "HU29222913091246323258276182",
     "signed_date": "2026-10-17"
    },
-   "latency_ms": 1813,
-   "cost_usd": 0.00041401,
-   "tokens_in": 853,
+   "latency_ms": 1486,
+   "cost_usd": 0.00041914000000000003,
+   "tokens_in": 872,
    "tokens_out": 167
   },
   {
@@ -11444,9 +11432,9 @@
     "vat_huf": 145908,
     "gross_total_huf": 686308
    },
-   "latency_ms": 2457,
-   "cost_usd": 0.00051245,
-   "tokens_in": 965,
+   "latency_ms": 1620,
+   "cost_usd": 0.00051758,
+   "tokens_in": 984,
    "tokens_out": 229
   },
   {
@@ -11456,7 +11444,7 @@
    "error": null,
    "checks": {
     "policy_number": true,
-    "claimant_name": true,
+    "claimant_name": false,
     "address": true,
     "phone": true,
     "email": true,
@@ -11471,7 +11459,7 @@
    },
    "got": {
     "policy_number": "KH-CASCO-2024-516833",
-    "claimant_name": "Mészáros Éva",
+    "claimant_name": "Mészáros Eva",
     "address": "8200 Veszprém, Jókai Mór utca 64.",
     "phone": "+36 70 662 9908",
     "email": "eva.meszaros43@freemail.hu",
@@ -11484,10 +11472,10 @@
     "payout_iban": "HU52757491186252760189555979",
     "signed_date": "2024-12-10"
    },
-   "latency_ms": 1615,
-   "cost_usd": 0.00043512,
-   "tokens_in": 866,
-   "tokens_out": 183
+   "latency_ms": 1600,
+   "cost_usd": 0.00043915,
+   "tokens_in": 885,
+   "tokens_out": 182
   },
   {
    "doc_id": "KH-2026-10441-2",
@@ -11553,10 +11541,10 @@
     "vat_huf": 82863,
     "gross_total_huf": 389763
    },
-   "latency_ms": 1568,
-   "cost_usd": 0.00048032000000000006,
-   "tokens_in": 956,
-   "tokens_out": 202
+   "latency_ms": 1788,
+   "cost_usd": 0.00053275,
+   "tokens_in": 975,
+   "tokens_out": 245
   },
   {
    "doc_id": "KH-2026-10441-3",
@@ -11601,9 +11589,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1055,
-   "cost_usd": 0.0004080600000000001,
-   "tokens_in": 888,
+   "latency_ms": 1137,
+   "cost_usd": 0.0004131900000000001,
+   "tokens_in": 907,
    "tokens_out": 153
   },
   {
@@ -11641,9 +11629,9 @@
     "payout_iban": "HU68793453740723890017842758",
     "signed_date": "2026-05-08"
    },
-   "latency_ms": 1573,
-   "cost_usd": 0.00042908000000000003,
-   "tokens_in": 864,
+   "latency_ms": 1427,
+   "cost_usd": 0.00043421000000000003,
+   "tokens_in": 883,
    "tokens_out": 178
   },
   {
@@ -11730,10 +11718,10 @@
     "vat_huf": 120069,
     "gross_total_huf": 564769
    },
-   "latency_ms": 1525,
-   "cost_usd": 0.0005626600000000001,
-   "tokens_in": 988,
-   "tokens_out": 269
+   "latency_ms": 1949,
+   "cost_usd": 0.0006326900000000001,
+   "tokens_in": 1007,
+   "tokens_out": 328
   },
   {
    "doc_id": "KH-2026-10444-3",
@@ -11778,9 +11766,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1512,
-   "cost_usd": 0.00040916000000000005,
-   "tokens_in": 888,
+   "latency_ms": 1530,
+   "cost_usd": 0.00041429000000000005,
+   "tokens_in": 907,
    "tokens_out": 154
   },
   {
@@ -11818,9 +11806,9 @@
     "payout_iban": "HU32227436718862648800083277",
     "signed_date": "2026-10-26"
    },
-   "latency_ms": 1674,
-   "cost_usd": 0.00044689,
-   "tokens_in": 877,
+   "latency_ms": 1520,
+   "cost_usd": 0.00045202,
+   "tokens_in": 896,
    "tokens_out": 191
   },
   {
@@ -11907,9 +11895,9 @@
     "vat_huf": 135891,
     "gross_total_huf": 639191
    },
-   "latency_ms": 1584,
-   "cost_usd": 0.0005590500000000001,
-   "tokens_in": 995,
+   "latency_ms": 1585,
+   "cost_usd": 0.0005641800000000001,
+   "tokens_in": 1014,
    "tokens_out": 264
   },
   {
@@ -11955,9 +11943,9 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1116,
-   "cost_usd": 0.00041190000000000004,
-   "tokens_in": 890,
+   "latency_ms": 1498,
+   "cost_usd": 0.00041703000000000004,
+   "tokens_in": 909,
    "tokens_out": 156
   },
   {
@@ -11995,9 +11983,9 @@
     "payout_iban": "HU64054742291356499638978732",
     "signed_date": "2025-04-20"
    },
-   "latency_ms": 1564,
-   "cost_usd": 0.0004318200000000001,
-   "tokens_in": 866,
+   "latency_ms": 1650,
+   "cost_usd": 0.00043695,
+   "tokens_in": 885,
    "tokens_out": 180
   },
   {
@@ -12074,10 +12062,10 @@
     "vat_huf": 168291,
     "gross_total_huf": 791591
    },
-   "latency_ms": 1344,
-   "cost_usd": 0.0005233900000000001,
-   "tokens_in": 977,
-   "tokens_out": 236
+   "latency_ms": 1843,
+   "cost_usd": 0.00060552,
+   "tokens_in": 996,
+   "tokens_out": 306
   },
   {
    "doc_id": "KH-2026-10453-1",
@@ -12114,9 +12102,9 @@
     "payout_iban": "HU16438124159978285505491374",
     "signed_date": "2026-10-22"
    },
-   "latency_ms": 1441,
-   "cost_usd": 0.00042771000000000004,
-   "tokens_in": 863,
+   "latency_ms": 1601,
+   "cost_usd": 0.00043284000000000004,
+   "tokens_in": 882,
    "tokens_out": 177
   },
   {
@@ -12193,9 +12181,9 @@
     "vat_huf": 147393,
     "gross_total_huf": 693293
    },
-   "latency_ms": 1724,
-   "cost_usd": 0.00051602,
-   "tokens_in": 966,
+   "latency_ms": 1367,
+   "cost_usd": 0.0005211500000000001,
+   "tokens_in": 985,
    "tokens_out": 232
   },
   {
@@ -12241,10 +12229,10 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1227,
-   "cost_usd": 0.00044326000000000006,
-   "tokens_in": 888,
-   "tokens_out": 185
+   "latency_ms": 1486,
+   "cost_usd": 0.00041429000000000005,
+   "tokens_in": 907,
+   "tokens_out": 154
   },
   {
    "doc_id": "KH-2026-10457-1",
@@ -12281,9 +12269,9 @@
     "payout_iban": "HU37565455321614910217714008",
     "signed_date": "2026-10-26"
    },
-   "latency_ms": 1312,
-   "cost_usd": 0.000426,
-   "tokens_in": 820,
+   "latency_ms": 1683,
+   "cost_usd": 0.00043113,
+   "tokens_in": 839,
    "tokens_out": 186
   },
   {
@@ -12360,9 +12348,9 @@
     "vat_huf": 67284,
     "gross_total_huf": 316484
    },
-   "latency_ms": 1720,
-   "cost_usd": 0.00053242,
-   "tokens_in": 986,
+   "latency_ms": 1449,
+   "cost_usd": 0.00053755,
+   "tokens_in": 1005,
    "tokens_out": 242
   },
   {
@@ -12400,9 +12388,9 @@
     "payout_iban": "HU65942305841136989836320904",
     "signed_date": "2024-01-19"
    },
-   "latency_ms": 1475,
-   "cost_usd": 0.00039889000000000005,
-   "tokens_in": 797,
+   "latency_ms": 1692,
+   "cost_usd": 0.00040402000000000005,
+   "tokens_in": 816,
    "tokens_out": 167
   },
   {
@@ -12469,10 +12457,10 @@
     "vat_huf": 101952,
     "gross_total_huf": 479552
    },
-   "latency_ms": 1347,
-   "cost_usd": 0.00048171000000000005,
-   "tokens_in": 953,
-   "tokens_out": 204
+   "latency_ms": 1354,
+   "cost_usd": 0.0005341400000000001,
+   "tokens_in": 972,
+   "tokens_out": 247
   },
   {
    "doc_id": "KH-2026-10459-1",
@@ -12509,9 +12497,9 @@
     "payout_iban": "HU48273547115429086415607571",
     "signed_date": "2024-05-17"
    },
-   "latency_ms": 1362,
-   "cost_usd": 0.00039557000000000004,
-   "tokens_in": 801,
+   "latency_ms": 1519,
+   "cost_usd": 0.00040070000000000004,
+   "tokens_in": 820,
    "tokens_out": 163
   },
   {
@@ -12568,10 +12556,10 @@
     "vat_huf": 94446,
     "gross_total_huf": 444246
    },
-   "latency_ms": 1409,
-   "cost_usd": 0.00044084,
-   "tokens_in": 932,
-   "tokens_out": 172
+   "latency_ms": 1588,
+   "cost_usd": 0.00048557000000000006,
+   "tokens_in": 951,
+   "tokens_out": 208
   },
   {
    "doc_id": "KH-2026-10459-3",
@@ -12616,9 +12604,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1560,
-   "cost_usd": 0.0004,
-   "tokens_in": 850,
+   "latency_ms": 1323,
+   "cost_usd": 0.00040513,
+   "tokens_in": 869,
    "tokens_out": 155
   },
   {
@@ -12656,9 +12644,9 @@
     "payout_iban": "HU32436426538653481637457351",
     "signed_date": "2026-01-04"
    },
-   "latency_ms": 1499,
-   "cost_usd": 0.00041675,
-   "tokens_in": 855,
+   "latency_ms": 1402,
+   "cost_usd": 0.00042188,
+   "tokens_in": 874,
    "tokens_out": 169
   },
   {
@@ -12735,9 +12723,9 @@
     "vat_huf": 190917,
     "gross_total_huf": 898017
    },
-   "latency_ms": 1505,
-   "cost_usd": 0.00052094,
-   "tokens_in": 972,
+   "latency_ms": 1521,
+   "cost_usd": 0.0005260699999999999,
+   "tokens_in": 991,
    "tokens_out": 235
   },
   {
@@ -12747,8 +12735,8 @@
    "error": null,
    "checks": {
     "policy_number": true,
-    "claimant_name": true,
-    "address": true,
+    "claimant_name": false,
+    "address": false,
     "phone": true,
     "email": true,
     "plate": true,
@@ -12762,8 +12750,8 @@
    },
    "got": {
     "policy_number": "KH-CASCO-2025-340227",
-    "claimant_name": "Hegedűs József",
-    "address": "4400 Nyíregyháza, Váci út 95.",
+    "claimant_name": "Hegedűs Jozsef",
+    "address": "4400 Nyiregyhaza, Váci út 95.",
     "phone": "+36 30 699 2429",
     "email": "jozsef.hegedus54@citromail.hu",
     "plate": "DPC-647",
@@ -12775,9 +12763,9 @@
     "payout_iban": "HU65483327454641708250277543",
     "signed_date": "2025-09-22"
    },
-   "latency_ms": 1621,
-   "cost_usd": 0.00043103000000000005,
-   "tokens_in": 859,
+   "latency_ms": 1612,
+   "cost_usd": 0.00043616,
+   "tokens_in": 878,
    "tokens_out": 181
   },
   {
@@ -12854,10 +12842,10 @@
     "vat_huf": 193455,
     "gross_total_huf": 909955
    },
-   "latency_ms": 1467,
-   "cost_usd": 0.00051409,
-   "tokens_in": 967,
-   "tokens_out": 230
+   "latency_ms": 1702,
+   "cost_usd": 0.0005764200000000001,
+   "tokens_in": 986,
+   "tokens_out": 282
   },
   {
    "doc_id": "KH-2026-10469-3",
@@ -12894,19 +12882,16 @@
      "driver_name": "Hegedűs József"
     },
     "circumstances_a": [
-     "A: sávot váltott",
-     "A: hátulról ütközött"
+     "A: sávot váltott"
     ],
-    "circumstances_b": [
-     "B: egyenesen haladt"
-    ],
+    "circumstances_b": [],
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1397,
-   "cost_usd": 0.00046601,
-   "tokens_in": 903,
-   "tokens_out": 202
+   "latency_ms": 1173,
+   "cost_usd": 0.00044254000000000006,
+   "tokens_in": 922,
+   "tokens_out": 176
   },
   {
    "doc_id": "KH-2026-10489-1",
@@ -12943,9 +12928,9 @@
     "payout_iban": "HU98334379417863448094286156",
     "signed_date": "2025-11-21"
    },
-   "latency_ms": 1693,
-   "cost_usd": 0.00045511,
-   "tokens_in": 883,
+   "latency_ms": 1593,
+   "cost_usd": 0.00046024,
+   "tokens_in": 902,
    "tokens_out": 197
   },
   {
@@ -13022,10 +13007,10 @@
     "vat_huf": 133407,
     "gross_total_huf": 627507
    },
-   "latency_ms": 1272,
-   "cost_usd": 0.0005253,
-   "tokens_in": 980,
-   "tokens_out": 237
+   "latency_ms": 1782,
+   "cost_usd": 0.0005865299999999999,
+   "tokens_in": 999,
+   "tokens_out": 288
   },
   {
    "doc_id": "KH-2026-10514-1",
@@ -13062,9 +13047,9 @@
     "payout_iban": "HU86490039476411201912574505",
     "signed_date": "2025-06-27"
    },
-   "latency_ms": 1350,
-   "cost_usd": 0.00045237,
-   "tokens_in": 881,
+   "latency_ms": 1597,
+   "cost_usd": 0.00045750000000000006,
+   "tokens_in": 900,
    "tokens_out": 195
   },
   {
@@ -13121,9 +13106,9 @@
     "vat_huf": 70416,
     "gross_total_huf": 331216
    },
-   "latency_ms": 1518,
-   "cost_usd": 0.0004441,
-   "tokens_in": 940,
+   "latency_ms": 1548,
+   "cost_usd": 0.00044923,
+   "tokens_in": 959,
    "tokens_out": 173
   },
   {
@@ -13161,9 +13146,9 @@
     "payout_iban": "HU83629786872378501465118377",
     "signed_date": "2025-10-19"
    },
-   "latency_ms": 1628,
-   "cost_usd": 0.00042497000000000005,
-   "tokens_in": 861,
+   "latency_ms": 1559,
+   "cost_usd": 0.00043010000000000005,
+   "tokens_in": 880,
    "tokens_out": 175
   },
   {
@@ -13240,9 +13225,9 @@
     "vat_huf": 83889,
     "gross_total_huf": 394589
    },
-   "latency_ms": 1343,
-   "cost_usd": 0.0005234100000000001,
-   "tokens_in": 973,
+   "latency_ms": 1554,
+   "cost_usd": 0.0005285400000000001,
+   "tokens_in": 992,
    "tokens_out": 237
   },
   {
@@ -13280,9 +13265,9 @@
     "payout_iban": "HU65690686699042699574334079",
     "signed_date": "2025-10-15"
    },
-   "latency_ms": 1342,
-   "cost_usd": 0.00042497000000000005,
-   "tokens_in": 861,
+   "latency_ms": 1457,
+   "cost_usd": 0.00043010000000000005,
+   "tokens_in": 880,
    "tokens_out": 175
   },
   {
@@ -13300,8 +13285,8 @@
     "plate": true,
     "line_items.count": true,
     "line_items.0.description": false,
-    "line_items.0.quantity": false,
-    "line_items.0.unit_price_huf": false,
+    "line_items.0.quantity": true,
+    "line_items.0.unit_price_huf": true,
     "line_items.0.net_huf": true,
     "line_items.1.description": true,
     "line_items.1.quantity": true,
@@ -13327,8 +13312,8 @@
     "line_items": [
      {
       "description": "Ajtó, jobb első ak",
-      "quantity": 352,
-      "unit_price_huf": 300,
+      "quantity": 1,
+      "unit_price_huf": 352300,
       "net_huf": 352300
      },
      {
@@ -13349,10 +13334,10 @@
     "vat_huf": 202014,
     "gross_total_huf": 950214
    },
-   "latency_ms": 1522,
-   "cost_usd": 0.00047706000000000007,
-   "tokens_in": 948,
-   "tokens_out": 201
+   "latency_ms": 1714,
+   "cost_usd": 0.0004832900000000001,
+   "tokens_in": 967,
+   "tokens_out": 202
   },
   {
    "doc_id": "KH-2026-10520-1",
@@ -13389,9 +13374,9 @@
     "payout_iban": "HU85526018159083016613186091",
     "signed_date": "2025-08-06"
    },
-   "latency_ms": 1797,
-   "cost_usd": 0.00044141000000000004,
-   "tokens_in": 873,
+   "latency_ms": 1587,
+   "cost_usd": 0.00044654000000000004,
+   "tokens_in": 892,
    "tokens_out": 187
   },
   {
@@ -13458,10 +13443,10 @@
     "vat_huf": 111699,
     "gross_total_huf": 525399
    },
-   "latency_ms": 1801,
-   "cost_usd": 0.00048692,
-   "tokens_in": 956,
-   "tokens_out": 208
+   "latency_ms": 1950,
+   "cost_usd": 0.0005393500000000001,
+   "tokens_in": 975,
+   "tokens_out": 251
   },
   {
    "doc_id": "KH-2026-10520-3",
@@ -13506,9 +13491,9 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1521,
-   "cost_usd": 0.00045586,
-   "tokens_in": 898,
+   "latency_ms": 1610,
+   "cost_usd": 0.00046099,
+   "tokens_in": 917,
    "tokens_out": 194
   },
   {
@@ -13546,9 +13531,9 @@
     "payout_iban": "HU79423632100414004240372107",
     "signed_date": "2026-10-29"
    },
-   "latency_ms": 1438,
-   "cost_usd": 0.00041401,
-   "tokens_in": 853,
+   "latency_ms": 1748,
+   "cost_usd": 0.00041914000000000003,
+   "tokens_in": 872,
    "tokens_out": 167
   },
   {
@@ -13615,9 +13600,9 @@
     "vat_huf": 73629,
     "gross_total_huf": 346329
    },
-   "latency_ms": 1168,
-   "cost_usd": 0.00047376,
-   "tokens_in": 948,
+   "latency_ms": 1631,
+   "cost_usd": 0.00047889000000000004,
+   "tokens_in": 967,
    "tokens_out": 198
   },
   {
@@ -13663,9 +13648,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1164,
-   "cost_usd": 0.00041354,
-   "tokens_in": 892,
+   "latency_ms": 1274,
+   "cost_usd": 0.00041867000000000006,
+   "tokens_in": 911,
    "tokens_out": 157
   },
   {
@@ -13703,9 +13688,9 @@
     "payout_iban": "HU98044023419035455781173957",
     "signed_date": "2026-01-21"
    },
-   "latency_ms": 1404,
-   "cost_usd": 0.00042908000000000003,
-   "tokens_in": 864,
+   "latency_ms": 1587,
+   "cost_usd": 0.00043421000000000003,
+   "tokens_in": 883,
    "tokens_out": 178
   },
   {
@@ -13782,10 +13767,10 @@
     "vat_huf": 153522,
     "gross_total_huf": 722122
    },
-   "latency_ms": 1782,
-   "cost_usd": 0.00050558,
-   "tokens_in": 964,
-   "tokens_out": 223
+   "latency_ms": 1753,
+   "cost_usd": 0.00056791,
+   "tokens_in": 983,
+   "tokens_out": 275
   },
   {
    "doc_id": "KH-2026-10525-3",
@@ -13830,9 +13815,9 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1699,
-   "cost_usd": 0.0004151800000000001,
-   "tokens_in": 894,
+   "latency_ms": 1336,
+   "cost_usd": 0.0004203100000000001,
+   "tokens_in": 913,
    "tokens_out": 158
   },
   {
@@ -13870,9 +13855,9 @@
     "payout_iban": "HU91205903953812539147267466",
     "signed_date": "2024-04-06"
    },
-   "latency_ms": 1461,
-   "cost_usd": 0.00044415000000000004,
-   "tokens_in": 875,
+   "latency_ms": 1387,
+   "cost_usd": 0.00044928000000000004,
+   "tokens_in": 894,
    "tokens_out": 189
   },
   {
@@ -13949,10 +13934,10 @@
     "vat_huf": 147825,
     "gross_total_huf": 695325
    },
-   "latency_ms": 1493,
-   "cost_usd": 0.00052474,
-   "tokens_in": 982,
-   "tokens_out": 236
+   "latency_ms": 1842,
+   "cost_usd": 0.0005870700000000001,
+   "tokens_in": 1001,
+   "tokens_out": 288
   },
   {
    "doc_id": "KH-2026-10532-1",
@@ -13961,7 +13946,7 @@
    "error": null,
    "checks": {
     "policy_number": true,
-    "claimant_name": true,
+    "claimant_name": false,
     "address": false,
     "phone": true,
     "email": true,
@@ -13976,7 +13961,7 @@
    },
    "got": {
     "policy_number": "KH-CASCO-2026-767926",
-    "claimant_name": "Szabó Sándor",
+    "claimant_name": "Szabo Sandor",
     "address": "1134 Budapest, Rákóczi ut 72.",
     "phone": "+36 30 808 8881",
     "email": "sandor.szabo56@freemail.hu",
@@ -13989,10 +13974,10 @@
     "payout_iban": "HU58740074172520967330837859",
     "signed_date": "2026-02-25"
    },
-   "latency_ms": 1476,
-   "cost_usd": 0.00042472,
-   "tokens_in": 856,
-   "tokens_out": 176
+   "latency_ms": 1684,
+   "cost_usd": 0.00042765,
+   "tokens_in": 875,
+   "tokens_out": 174
   },
   {
    "doc_id": "KH-2026-10532-2",
@@ -14068,10 +14053,10 @@
     "vat_huf": 263682,
     "gross_total_huf": 1240282
    },
-   "latency_ms": 1457,
-   "cost_usd": 0.00052121,
-   "tokens_in": 973,
-   "tokens_out": 235
+   "latency_ms": 1796,
+   "cost_usd": 0.00058244,
+   "tokens_in": 992,
+   "tokens_out": 286
   },
   {
    "doc_id": "KH-2026-10534-1",
@@ -14108,9 +14093,9 @@
     "payout_iban": "HU75535737488267586858278528",
     "signed_date": "2026-08-12"
    },
-   "latency_ms": 1382,
-   "cost_usd": 0.0004318200000000001,
-   "tokens_in": 866,
+   "latency_ms": 1510,
+   "cost_usd": 0.00043695,
+   "tokens_in": 885,
    "tokens_out": 180
   },
   {
@@ -14167,9 +14152,9 @@
     "vat_huf": 54756,
     "gross_total_huf": 257556
    },
-   "latency_ms": 1202,
-   "cost_usd": 0.00044796,
-   "tokens_in": 938,
+   "latency_ms": 1203,
+   "cost_usd": 0.00045309,
+   "tokens_in": 957,
    "tokens_out": 177
   },
   {
@@ -14215,9 +14200,9 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1238,
-   "cost_usd": 0.00040943000000000007,
-   "tokens_in": 889,
+   "latency_ms": 1456,
+   "cost_usd": 0.00041456000000000007,
+   "tokens_in": 908,
    "tokens_out": 154
   },
   {
@@ -14255,9 +14240,9 @@
     "payout_iban": "HU78653808410641675302082707",
     "signed_date": "2026-10-27"
    },
-   "latency_ms": 1258,
-   "cost_usd": 0.00042609,
-   "tokens_in": 857,
+   "latency_ms": 1862,
+   "cost_usd": 0.00043122,
+   "tokens_in": 876,
    "tokens_out": 177
   },
   {
@@ -14324,10 +14309,10 @@
     "vat_huf": 127278,
     "gross_total_huf": 598678
    },
-   "latency_ms": 1582,
-   "cost_usd": 0.00047706000000000007,
-   "tokens_in": 948,
-   "tokens_out": 201
+   "latency_ms": 1435,
+   "cost_usd": 0.00052949,
+   "tokens_in": 967,
+   "tokens_out": 244
   },
   {
    "doc_id": "KH-2026-10547-1",
@@ -14364,9 +14349,9 @@
     "payout_iban": "HU91426667728990018430760499",
     "signed_date": "2026-10-29"
    },
-   "latency_ms": 1430,
-   "cost_usd": 0.00041537999999999997,
-   "tokens_in": 854,
+   "latency_ms": 1321,
+   "cost_usd": 0.00042050999999999997,
+   "tokens_in": 873,
    "tokens_out": 168
   },
   {
@@ -14443,10 +14428,10 @@
     "vat_huf": 164457,
     "gross_total_huf": 773557
    },
-   "latency_ms": 1508,
-   "cost_usd": 0.00052177,
-   "tokens_in": 971,
-   "tokens_out": 236
+   "latency_ms": 2015,
+   "cost_usd": 0.000583,
+   "tokens_in": 990,
+   "tokens_out": 287
   },
   {
    "doc_id": "KH-2026-10550-1",
@@ -14483,9 +14468,9 @@
     "payout_iban": "HU72626435700024001366228739",
     "signed_date": "2024-06-26"
    },
-   "latency_ms": 1536,
-   "cost_usd": 0.0004373,
-   "tokens_in": 870,
+   "latency_ms": 1726,
+   "cost_usd": 0.00044243000000000006,
+   "tokens_in": 889,
    "tokens_out": 184
   },
   {
@@ -14514,7 +14499,7 @@
     "line_items.2.quantity": true,
     "line_items.2.unit_price_huf": true,
     "line_items.2.net_huf": true,
-    "line_items.3.description": true,
+    "line_items.3.description": false,
     "line_items.3.quantity": true,
     "line_items.3.unit_price_huf": true,
     "line_items.3.net_huf": true,
@@ -14555,7 +14540,7 @@
       "net_huf": 308400
      },
      {
-      "description": "Karosszériamunka (óra)",
+      "description": "Karosszériamunka (6ra)",
       "quantity": 9,
       "unit_price_huf": 21800,
       "net_huf": 196200
@@ -14572,10 +14557,10 @@
     "vat_huf": 180495,
     "gross_total_huf": 848995
    },
-   "latency_ms": 1797,
-   "cost_usd": 0.00068198,
-   "tokens_in": 994,
-   "tokens_out": 376
+   "latency_ms": 1662,
+   "cost_usd": 0.00056171,
+   "tokens_in": 1013,
+   "tokens_out": 262
   },
   {
    "doc_id": "KH-2026-10552-1",
@@ -14612,9 +14597,9 @@
     "payout_iban": "HU46324881331702745319886825",
     "signed_date": "2025-05-10"
    },
-   "latency_ms": 1526,
-   "cost_usd": 0.00040853000000000005,
-   "tokens_in": 849,
+   "latency_ms": 1583,
+   "cost_usd": 0.00041366000000000005,
+   "tokens_in": 868,
    "tokens_out": 163
   },
   {
@@ -14691,10 +14676,10 @@
     "vat_huf": 221184,
     "gross_total_huf": 1040384
    },
-   "latency_ms": 1730,
-   "cost_usd": 0.0005231200000000001,
-   "tokens_in": 976,
-   "tokens_out": 236
+   "latency_ms": 1881,
+   "cost_usd": 0.0005854500000000001,
+   "tokens_in": 995,
+   "tokens_out": 288
   },
   {
    "doc_id": "KH-2026-10552-3",
@@ -14739,9 +14724,9 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1419,
-   "cost_usd": 0.00043915,
-   "tokens_in": 885,
+   "latency_ms": 1428,
+   "cost_usd": 0.00044428,
+   "tokens_in": 904,
    "tokens_out": 182
   },
   {
@@ -14779,9 +14764,9 @@
     "payout_iban": "HU15184206765064980747367459",
     "signed_date": "2025-10-26"
    },
-   "latency_ms": 1493,
-   "cost_usd": 0.00041675,
-   "tokens_in": 855,
+   "latency_ms": 1635,
+   "cost_usd": 0.00042188,
+   "tokens_in": 874,
    "tokens_out": 169
   },
   {
@@ -14848,9 +14833,9 @@
     "vat_huf": 70956,
     "gross_total_huf": 333756
    },
-   "latency_ms": 1795,
-   "cost_usd": 0.00047843000000000007,
-   "tokens_in": 949,
+   "latency_ms": 1714,
+   "cost_usd": 0.00048356000000000007,
+   "tokens_in": 968,
    "tokens_out": 202
   },
   {
@@ -14888,9 +14873,9 @@
     "payout_iban": "HU21648338533675610694621108",
     "signed_date": "2026-05-22"
    },
-   "latency_ms": 1616,
-   "cost_usd": 0.0004400400000000001,
-   "tokens_in": 872,
+   "latency_ms": 2039,
+   "cost_usd": 0.00044517000000000005,
+   "tokens_in": 891,
    "tokens_out": 186
   },
   {
@@ -14915,7 +14900,7 @@
     "line_items.1.quantity": true,
     "line_items.1.unit_price_huf": true,
     "line_items.1.net_huf": true,
-    "line_items.2.description": false,
+    "line_items.2.description": true,
     "line_items.2.quantity": true,
     "line_items.2.unit_price_huf": true,
     "line_items.2.net_huf": true,
@@ -14950,7 +14935,7 @@
       "net_huf": 80200
      },
      {
-      "description": "Visszapillantó tükör i",
+      "description": "Visszapillantó tükör",
       "quantity": 1,
       "unit_price_huf": 65600,
       "net_huf": 65600
@@ -14967,10 +14952,10 @@
     "vat_huf": 86481,
     "gross_total_huf": 406781
    },
-   "latency_ms": 1720,
-   "cost_usd": 0.0005286000000000001,
-   "tokens_in": 980,
-   "tokens_out": 240
+   "latency_ms": 1613,
+   "cost_usd": 0.0005898300000000001,
+   "tokens_in": 999,
+   "tokens_out": 291
   },
   {
    "doc_id": "KH-2026-10558-3",
@@ -15015,9 +15000,9 @@
     "injuries": false,
     "witnesses": true
    },
-   "latency_ms": 1280,
-   "cost_usd": 0.00041655,
-   "tokens_in": 895,
+   "latency_ms": 1465,
+   "cost_usd": 0.00042168000000000007,
+   "tokens_in": 914,
    "tokens_out": 159
   },
   {
@@ -15055,9 +15040,9 @@
     "payout_iban": "HU86092843152141746774590843",
     "signed_date": "2026-10-30"
    },
-   "latency_ms": 1386,
-   "cost_usd": 0.00041322,
-   "tokens_in": 846,
+   "latency_ms": 1491,
+   "cost_usd": 0.00041835,
+   "tokens_in": 865,
    "tokens_out": 168
   },
   {
@@ -15134,9 +15119,9 @@
     "vat_huf": 128871,
     "gross_total_huf": 606171
    },
-   "latency_ms": 1502,
-   "cost_usd": 0.00051901,
-   "tokens_in": 973,
+   "latency_ms": 1609,
+   "cost_usd": 0.0005241400000000001,
+   "tokens_in": 992,
    "tokens_out": 233
   },
   {
@@ -15174,9 +15159,9 @@
     "payout_iban": "HU51938982788628380567965261",
     "signed_date": "2024-12-27"
    },
-   "latency_ms": 1473,
-   "cost_usd": 0.0004373,
-   "tokens_in": 870,
+   "latency_ms": 1601,
+   "cost_usd": 0.00044243000000000006,
+   "tokens_in": 889,
    "tokens_out": 184
   },
   {
@@ -15243,10 +15228,10 @@
     "vat_huf": 122067,
     "gross_total_huf": 574167
    },
-   "latency_ms": 1661,
-   "cost_usd": 0.00047953000000000004,
-   "tokens_in": 949,
-   "tokens_out": 203
+   "latency_ms": 1678,
+   "cost_usd": 0.00053306,
+   "tokens_in": 968,
+   "tokens_out": 247
   },
   {
    "doc_id": "KH-2026-10573-1",
@@ -15283,9 +15268,9 @@
     "payout_iban": "HU67233355264845833553633845",
     "signed_date": "2025-10-27"
    },
-   "latency_ms": 1294,
-   "cost_usd": 0.00043040000000000005,
-   "tokens_in": 820,
+   "latency_ms": 1548,
+   "cost_usd": 0.00043553000000000005,
+   "tokens_in": 839,
    "tokens_out": 190
   },
   {
@@ -15352,10 +15337,10 @@
     "vat_huf": 137322,
     "gross_total_huf": 645922
    },
-   "latency_ms": 1536,
-   "cost_usd": 0.0005738000000000001,
-   "tokens_in": 960,
-   "tokens_out": 286
+   "latency_ms": 1466,
+   "cost_usd": 0.0005360300000000001,
+   "tokens_in": 979,
+   "tokens_out": 247
   },
   {
    "doc_id": "KH-2026-10573-3",
@@ -15400,10 +15385,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1400,
-   "cost_usd": 0.00044479000000000003,
-   "tokens_in": 857,
-   "tokens_out": 194
+   "latency_ms": 1382,
+   "cost_usd": 0.00041582000000000007,
+   "tokens_in": 876,
+   "tokens_out": 163
   },
   {
    "doc_id": "KH-2026-10574-1",
@@ -15440,9 +15425,9 @@
     "payout_iban": "HU64924150712409576838869458",
     "signed_date": "2026-10-26"
    },
-   "latency_ms": 1409,
-   "cost_usd": 0.00042634000000000004,
-   "tokens_in": 862,
+   "latency_ms": 1337,
+   "cost_usd": 0.00043147000000000004,
+   "tokens_in": 881,
    "tokens_out": 176
   },
   {
@@ -15509,9 +15494,9 @@
     "vat_huf": 143343,
     "gross_total_huf": 674243
    },
-   "latency_ms": 1589,
-   "cost_usd": 0.00048059000000000003,
-   "tokens_in": 957,
+   "latency_ms": 1323,
+   "cost_usd": 0.00048572000000000003,
+   "tokens_in": 976,
    "tokens_out": 202
   },
   {
@@ -15549,9 +15534,9 @@
     "payout_iban": "HU89856418731139117767978314",
     "signed_date": "2026-10-31"
    },
-   "latency_ms": 1598,
-   "cost_usd": 0.00042497000000000005,
-   "tokens_in": 861,
+   "latency_ms": 1554,
+   "cost_usd": 0.00043010000000000005,
+   "tokens_in": 880,
    "tokens_out": 175
   },
   {
@@ -15628,9 +15613,9 @@
     "vat_huf": 98658,
     "gross_total_huf": 464058
    },
-   "latency_ms": 1451,
-   "cost_usd": 0.0005203800000000001,
-   "tokens_in": 974,
+   "latency_ms": 1642,
+   "cost_usd": 0.00052551,
+   "tokens_in": 993,
    "tokens_out": 234
   },
   {
@@ -15668,9 +15653,9 @@
     "payout_iban": "HU36192536317296411981051983",
     "signed_date": "2023-11-19"
    },
-   "latency_ms": 1601,
-   "cost_usd": 0.00041264000000000003,
-   "tokens_in": 852,
+   "latency_ms": 1458,
+   "cost_usd": 0.00041777000000000003,
+   "tokens_in": 871,
    "tokens_out": 166
   },
   {
@@ -15747,10 +15732,10 @@
     "vat_huf": 100467,
     "gross_total_huf": 472567
    },
-   "latency_ms": 1479,
-   "cost_usd": 0.0005119100000000001,
-   "tokens_in": 963,
-   "tokens_out": 229
+   "latency_ms": 1768,
+   "cost_usd": 0.0005951400000000001,
+   "tokens_in": 982,
+   "tokens_out": 300
   },
   {
    "doc_id": "KH-2026-10578-1",
@@ -15787,9 +15772,9 @@
     "payout_iban": "HU52757491186252760189555979",
     "signed_date": "2025-01-27"
    },
-   "latency_ms": 1592,
-   "cost_usd": 0.00043867000000000005,
-   "tokens_in": 871,
+   "latency_ms": 1519,
+   "cost_usd": 0.00044380000000000005,
+   "tokens_in": 890,
    "tokens_out": 185
   },
   {
@@ -15856,9 +15841,9 @@
     "vat_huf": 96606,
     "gross_total_huf": 454406
    },
-   "latency_ms": 1581,
-   "cost_usd": 0.0005740900000000002,
-   "tokens_in": 957,
+   "latency_ms": 1496,
+   "cost_usd": 0.00057922,
+   "tokens_in": 976,
    "tokens_out": 287
   },
   {
@@ -15896,9 +15881,9 @@
     "payout_iban": "HU31778308582276891097147839",
     "signed_date": "2025-08-24"
    },
-   "latency_ms": 1360,
-   "cost_usd": 0.00043319000000000007,
-   "tokens_in": 867,
+   "latency_ms": 1184,
+   "cost_usd": 0.00043832000000000007,
+   "tokens_in": 886,
    "tokens_out": 181
   },
   {
@@ -15975,10 +15960,10 @@
     "vat_huf": 88533,
     "gross_total_huf": 416433
    },
-   "latency_ms": 1551,
-   "cost_usd": 0.00052478,
-   "tokens_in": 974,
-   "tokens_out": 238
+   "latency_ms": 1944,
+   "cost_usd": 0.0005871100000000001,
+   "tokens_in": 993,
+   "tokens_out": 290
   },
   {
    "doc_id": "KH-2026-10588-3",
@@ -16023,10 +16008,10 @@
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1147,
-   "cost_usd": 0.00038716,
-   "tokens_in": 888,
-   "tokens_out": 134
+   "latency_ms": 1505,
+   "cost_usd": 0.0004131900000000001,
+   "tokens_in": 907,
+   "tokens_out": 153
   },
   {
    "doc_id": "KH-2026-10594-1",
@@ -16063,9 +16048,9 @@
     "payout_iban": "HU65645205028947973771033758",
     "signed_date": "2025-02-28"
    },
-   "latency_ms": 1378,
-   "cost_usd": 0.00044141000000000004,
-   "tokens_in": 873,
+   "latency_ms": 1688,
+   "cost_usd": 0.00044654000000000004,
+   "tokens_in": 892,
    "tokens_out": 187
   },
   {
@@ -16132,10 +16117,10 @@
     "vat_huf": 167427,
     "gross_total_huf": 787527
    },
-   "latency_ms": 1520,
-   "cost_usd": 0.00047430000000000004,
-   "tokens_in": 950,
-   "tokens_out": 198
+   "latency_ms": 1525,
+   "cost_usd": 0.0005278300000000001,
+   "tokens_in": 969,
+   "tokens_out": 242
   },
   {
    "doc_id": "KH-2026-10594-3",
@@ -16152,7 +16137,7 @@
     "vehicle_b.plate": true,
     "vehicle_b.insurer": true,
     "vehicle_b.driver_name": true,
-    "circumstances_a": false,
+    "circumstances_a": true,
     "circumstances_b": false,
     "injuries": true,
     "witnesses": true
@@ -16172,25 +16157,16 @@
      "driver_name": "Kiss Zsuzsanna"
     },
     "circumstances_a": [
-     "A: álló helyzetben volt",
-     "A: parkolóhelyről kiállt",
-     "A: sávot váltott",
-     "A: hátulról ütközött",
-     "A: tolatott",
-     "A: elsőbbséget nem adott"
+     "A: álló helyzetben volt"
     ],
-    "circumstances_b": [
-     "B: sávot váltott",
-     "B: tolatott",
-     "B: elsőbbséget nem adott"
-    ],
+    "circumstances_b": [],
     "injuries": false,
     "witnesses": false
    },
-   "latency_ms": 1711,
-   "cost_usd": 0.0004944,
-   "tokens_in": 890,
-   "tokens_out": 231
+   "latency_ms": 1350,
+   "cost_usd": 0.00043793000000000006,
+   "tokens_in": 909,
+   "tokens_out": 175
   }
  ]
 }

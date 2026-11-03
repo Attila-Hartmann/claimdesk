@@ -134,9 +134,8 @@ resource "aws_lambda_function" "worker" {
   package_type  = "Image"
   image_uri     = local.image_uri
   image_config { command = ["claimdesk.handlers.worker"] }
-  memory_size                    = 2048 # Tesseract is CPU-bound; Lambda CPU scales with memory
-  timeout                        = 300
-  reserved_concurrent_executions = 2 # caps spend if someone floods the upload form
+  memory_size = 2048 # Tesseract is CPU-bound; Lambda CPU scales with memory
+  timeout     = 300
   environment { variables = local.env }
   tracing_config { mode = "Active" }
 }
@@ -145,6 +144,7 @@ resource "aws_lambda_event_source_mapping" "jobs" {
   function_name           = aws_lambda_function.worker.arn
   batch_size              = 1
   function_response_types = ["ReportBatchItemFailures"]
+  scaling_config { maximum_concurrency = 2 } # caps spend if someone floods the upload form
 }
 
 # ── web + CDN ──────────────────────────────────────────────────────────────────────────────────────────────

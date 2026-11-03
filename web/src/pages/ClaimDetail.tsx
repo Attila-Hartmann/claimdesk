@@ -3,7 +3,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 
-import { api, DEMO, type Doc, type Issue } from '../api';
+import { api, type Doc, type Issue, useReadonly } from '../api';
 import { DOC_TYPE, FIELD, modelName, pct, usd } from '../labels';
 
 type Fields = Record<string, unknown>;
@@ -72,6 +72,7 @@ function FieldEditor({ value, onChange, issues, readOnly }: { value: Fields; onC
 
 function DocumentPanel({ cid, doc }: { cid: string; doc: Doc }) {
   const qc = useQueryClient();
+  const readonly = useReadonly();
   const [fields, setFields] = useState<Fields>(doc.review?.fields ?? doc.fields ?? {});
   useEffect(() => setFields(doc.review?.fields ?? doc.fields ?? {}), [doc]);
   const approve = useMutation({
@@ -114,7 +115,7 @@ function DocumentPanel({ cid, doc }: { cid: string; doc: Doc }) {
               {doc.issues.map((i) => <Text key={i.code + i.field} size="sm">{i.message}</Text>)}
             </Alert>
           )}
-          <FieldEditor value={fields} onChange={setFields} issues={doc.issues ?? []} readOnly={!!doc.review || DEMO} />
+          <FieldEditor value={fields} onChange={setFields} issues={doc.issues ?? []} readOnly={!!doc.review || readonly} />
           {doc.review ? (
             <Alert color="teal" title={`Reviewed${doc.review.simulated ? ' (simulated reviewer)' : ''}`}>
               {doc.review.accepted} of {doc.review.total} fields accepted as extracted.
@@ -122,8 +123,8 @@ function DocumentPanel({ cid, doc }: { cid: string; doc: Doc }) {
             </Alert>
           ) : (
             <Group>
-              <Button onClick={() => approve.mutate()} loading={approve.isPending} disabled={DEMO}>Approve fields</Button>
-              {DEMO && <Text size="sm" c="dimmed">Reviewing is off in the read-only demo.</Text>}
+              <Button onClick={() => approve.mutate()} loading={approve.isPending} disabled={readonly}>Approve fields</Button>
+              {readonly && <Text size="sm" c="dimmed">Reviews are off on the public demo, so visitors cannot skew the rollout statistics.</Text>}
             </Group>
           )}
         </Stack>

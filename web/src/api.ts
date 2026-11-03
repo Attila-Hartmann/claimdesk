@@ -1,3 +1,5 @@
+import { useQuery } from '@tanstack/react-query';
+
 export interface Issue { code: string; field: string; message: string }
 export interface FraudReason { feature: string; label: string; value: number; impact: number }
 
@@ -92,6 +94,12 @@ async function post<T>(path: string, body: unknown): Promise<T> {
   const r = await fetch(`/api/${path}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(await r.text());
   return r.json() as Promise<T>;
+}
+
+/** Reviews and canary changes are off: the static demo, or the public AWS demo (protects the rollout statistics). */
+export function useReadonly(): boolean {
+  const { data } = useQuery({ queryKey: ['health'], queryFn: () => get<{ readonly?: boolean }>('health'), enabled: !DEMO });
+  return DEMO || (data?.readonly ?? true);
 }
 
 export const api = {

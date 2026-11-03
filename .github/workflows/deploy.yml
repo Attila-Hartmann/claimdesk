@@ -25,7 +25,7 @@ jobs:
       - name: image
         run: |
           IMAGE="${{ vars.ECR_REPOSITORY }}:${GITHUB_SHA::12}"
-          docker build -f api/Dockerfile -t "$IMAGE" .
+          docker build --provenance=false -f api/Dockerfile -t "$IMAGE" .  # Lambda rejects attestation manifests
           docker push "$IMAGE"
           for fn in ${{ vars.FUNCTIONS }}; do
             aws lambda update-function-code --function-name "$fn" --image-uri "$IMAGE" > /dev/null

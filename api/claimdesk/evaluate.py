@@ -7,6 +7,7 @@ summary). The same summary drives the promotion decision for a fine-tuned model.
 import argparse
 import json
 import statistics
+import time
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
@@ -59,21 +60,27 @@ def main() -> None:
     ap.add_argument("endpoint", help="champion | challenger | claimdesk-<version>")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--gpu-usd-per-hour", type=float, help="self-hosted model: GPU price, to cost the run by wall-clock time")
     a = ap.parse_args()
     ep = extract.endpoint(a.endpoint)
     docs = dataset.load("test")[: a.limit]
+    t0 = time.perf_counter()
     with ThreadPoolExecutor(a.workers) as ex:
         results = list(ex.map(lambda r: run_one(ep, r), docs))
-    summary = {"endpoint": a.endpoint, "model": ep.model, "at": datetime.now(UTC).isoformat(timespec="seconds")} | summarise(results)
+    wall = time.perf_counter() - t0
+    summary = {"endpoint": a.endpoint, "model": ep.model, "at": datetime.now(UTC).isoformat(timespec="seconds"),
+               "wall_s": round(wall, 1), "concurrency": a.workers} | summarise(results)
+    if a.gpu_usd_per_hour:  # one GPU serving `workers` concurrent requests: cost = GPU time / documents
+        summary |= {"gpu_usd_per_hour": a.gpu_usd_per_hour, "gpu_cost_per_1k_docs_usd": a.gpu_usd_per_hour * wall / 3600 / len(docs) * 1000}
     REPORTS.mkdir(parents=True, exist_ok=True)
-    name = ep.model if a.endpoint.startswith("claimdesk-") else a.endpoint
+    name = ep.model.replace(":", "_")
     (REPORTS / f"{name}.json").write_text(json.dumps({"summary": summary, "results": results}, ensure_ascii=False, indent=1), encoding="utf-8")
     mlflow.set_tracking_uri(settings().mlflow_tracking_uri)
     mlflow.set_experiment("extraction")
     with mlflow.start_run(run_name=f"{a.endpoint}:{ep.model}"):
         mlflow.log_params({"endpoint": a.endpoint, "model": ep.model, "docs": len(docs)})
-        mlflow.log_metrics({k: v for k, v in summary.items() if isinstance(v, int | float) and v is not None}
-                           | {f"acc_{k}": v for k, v in summary["by_group"].items()})
+        mlflow.log_metrics({k: float(v) for k, v in summary.items() if isinstance(v, int | float) and v is not None}
+                           | {f"acc_{k}": float(v) for k, v in summary["by_group"].items()})
     print(json.dumps(summary, indent=1))
 
 

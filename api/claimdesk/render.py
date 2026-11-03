@@ -212,11 +212,11 @@ RENDER = {"claim_form": claim_form, "repair_invoice": repair_invoice, "accident_
 def scan(pdf: Path, out: Path, rng: random.Random) -> None:
     """Rasterise and degrade like an office scanner: slight rotation, blur, noise, grey paper."""
     page = pdfium.PdfDocument(str(pdf))[0]
-    img = page.render(scale=200 / 72).to_pil().convert("L")
+    img = page.render(scale=200 / 72).to_pil().convert("L")  # type: ignore[arg-type]  # pypdfium2 accepts float scales
     img = img.rotate(rng.uniform(-1.5, 1.5), expand=True, fillcolor=255, resample=Image.Resampling.BICUBIC)
     img = img.filter(ImageFilter.GaussianBlur(rng.uniform(0.2, 0.6)))
     noise = Image.effect_noise(img.size, rng.uniform(8, 18))
-    img = Image.blend(img, noise, 0.08).point(lambda v: min(255, int(v * 0.93 + 8)))
+    img = Image.blend(img, noise, 0.08).point([min(255, int(v * 0.93 + 8)) for v in range(256)])  # lighten: grey paper
     img.save(out, optimize=True)
 
 

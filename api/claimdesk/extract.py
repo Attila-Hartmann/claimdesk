@@ -24,8 +24,9 @@ RULES = """You extract data from Hungarian motor-insurance claim documents for K
 text layer or from OCR of a scan, so expect lost accents, broken lines and misread characters.
 Rules: copy names, addresses and descriptions exactly as written, restoring Hungarian accents only where the word is
 unambiguous; dates as YYYY-MM-DD (and YYYY-MM-DDTHH:MM for date-times); amounts as integers in HUF without spaces;
-IBAN without spaces; registration numbers in upper case with a hyphen; circumstances exactly as printed after the box,
-prefixed with "A: " or "B: ". Never invent a value: if a field is unreadable, return your best reading of the text."""
+IBAN without spaces; registration numbers in upper case with a hyphen. Accident statements only: list just the ticked
+boxes (marked X), each exactly as printed and prefixed with "A: " or "B: "; no other field gets a prefix.
+Never invent a value: if a field is unreadable, return your best reading of the text."""
 
 
 def system_prompt(doc_type: str, *, short: bool) -> str:
@@ -51,8 +52,10 @@ _clients: dict[str, Any] = {}
 def _bedrock(model: str, system: str, text: str) -> tuple[str, int, int]:
     """Amazon Bedrock Converse API (IAM auth, no API key). Use an EU inference profile (eu.anthropic...) for EU residency."""
     import boto3
+    from botocore.config import Config
 
-    client = _clients.setdefault("bedrock", boto3.client("bedrock-runtime"))  # type: ignore[arg-type]
+    # New accounts start with low Bedrock quotas: back off and retry instead of failing the document.
+    client = _clients.setdefault("bedrock", boto3.client("bedrock-runtime", config=Config(retries={"mode": "adaptive", "max_attempts": 10})))
     r = client.converse(modelId=model, system=[{"text": system}], messages=[{"role": "user", "content": [{"text": text}]}],
                         inferenceConfig={"maxTokens": 1200, "temperature": 0})
     raw = r["output"]["message"]["content"][0]["text"].strip().removeprefix("```json").removesuffix("```")
@@ -66,7 +69,9 @@ def extract(ep: Endpoint, doc_type: str, text: str) -> Result:
     if ep.base_url == "bedrock":
         raw, tin, tout = _bedrock(ep.model, system, text)
     else:
-        client = _clients.setdefault(ep.name + ep.base_url, OpenAI(base_url=ep.base_url, api_key=ep.api_key, timeout=120, max_retries=2))
+        # Self-hosted: fail fast (a cold GPU takes minutes) so the caller can fall back to the frontier API.
+        timeout, retries = (25, 0) if short else (120, 2)
+        client = _clients.setdefault(ep.name + ep.base_url, OpenAI(base_url=ep.base_url, api_key=ep.api_key, timeout=timeout, max_retries=retries))
         resp = client.chat.completions.create(
             model=ep.model, temperature=0, response_format={"type": "json_object"}, max_tokens=1200,
             messages=[{"role": "system", "content": system}, {"role": "user", "content": text}])
@@ -75,7 +80,7 @@ def extract(ep: Endpoint, doc_type: str, text: str) -> Result:
         raw = resp.choices[0].message.content or ""
     ms = int((time.perf_counter() - t0) * 1000)
     p_in, _, p_out = next((p for k, p in PRICES.items() if k in ep.model), (0.0, 0.0, 0.0))
-    cost = (tin * p_in + tout * p_out) / 1_000_000
+    cost = (tin * p_in + tout * p_out) / 1_000_000 if not short else settings().challenger_usd_per_1k_docs / 1000
     try:
         fields = SCHEMAS[doc_type].model_validate_json(raw).model_dump()
         return Result(ep.model, fields, None, tin, tout, ms, cost)

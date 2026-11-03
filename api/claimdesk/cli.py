@@ -32,7 +32,7 @@ def _load(ref: str, docs: list[dict]) -> str:
 
 
 def _used_refs() -> set[str]:
-    return {(store.get_json(k) or {}).get("ref") for k in store.keys("claims/")}
+    return {str((store.get_json(k) or {}).get("ref")) for k in store.keys("claims/")}
 
 
 def seed(n: int) -> None:

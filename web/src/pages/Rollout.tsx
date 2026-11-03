@@ -2,7 +2,7 @@ import { Alert, Badge, Button, Group, Paper, Select, SimpleGrid, Slider, Stack, 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 
-import { api, DEMO, type EvalSummary } from '../api';
+import { api, type EvalSummary, useReadonly } from '../api';
 import { modelName, pct, usd } from '../labels';
 
 const GROUPS: [string, string][] = [
@@ -49,6 +49,7 @@ export function Rollout() {
   const qc = useQueryClient();
   const { data: ro } = useQuery({ queryKey: ['rollout'], queryFn: api.rollout });
   const { data: evals } = useQuery({ queryKey: ['evals'], queryFn: api.evals });
+  const readonly = useReadonly();
   const [challenger, setChallenger] = useState<string | null>(null);
   const [share, setShare] = useState(20);
   const apply = useMutation({ mutationFn: () => api.setCanary(challenger, share), onSuccess: () => qc.invalidateQueries({ queryKey: ['rollout'] }) });
@@ -69,7 +70,11 @@ export function Rollout() {
 
       <Paper withBorder p="md">
         <Title order={3} mb="sm">Offline evaluation on held-out documents</Title>
-        {evals ? <EvalTable evals={evals} /> : <Text c="dimmed">No eval reports yet.</Text>}
+        {evals ? <EvalTable evals={evals} /> : <Text c="dimmed">Loading evaluation reports…</Text>}
+        <Text size="xs" c="dimmed" mt="sm">
+          290 documents the models never saw in training, same rules for every frontier model. The fine-tuned model was timed as a batch: 64
+          concurrent requests on one L4 GPU, so its latency is per request under load and its cost is GPU time divided by documents.
+        </Text>
       </Paper>
 
       <SimpleGrid cols={{ base: 1, md: 2 }}>
@@ -98,7 +103,7 @@ export function Rollout() {
         </Alert>
       )}
 
-      {!DEMO && (
+      {!readonly && (
         <Paper withBorder p="md">
           <Title order={4} mb="sm">Start a canary</Title>
           <Group align="flex-end">

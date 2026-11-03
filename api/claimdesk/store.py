@@ -62,6 +62,14 @@ def get_json(key: str) -> Any:
     return json.loads(raw) if raw is not None else None
 
 
+def get_json_many(prefix: str) -> list[Any]:
+    """Every JSON object under a prefix, fetched in parallel (S3 latency, not size, dominates)."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    with ThreadPoolExecutor(32) as ex:
+        return [o for o in ex.map(get_json, keys(prefix)) if o is not None]
+
+
 def artifact(local: Path) -> Path:
     """A published model or report: the local file in development, `artifacts/<name>` from the store on AWS."""
     if local.exists() or not settings().store_bucket:

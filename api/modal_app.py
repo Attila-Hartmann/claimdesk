@@ -62,6 +62,7 @@ def train(rows: list[dict], run: str, epochs: float = 2, lr: float = 2e-4, rank:
 @modal.web_server(port=8000, startup_timeout=900)
 def serve() -> None:
     volume.reload()
+    subprocess.run(["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"])  # which GPU the fallback list gave us, for costing
     adapters = sorted(p.name for p in (VOL / "adapters").iterdir()) if (VOL / "adapters").exists() else []
     cmd = ["vllm", "serve", BASE, "--served-model-name", "qwen3-4b", "--host", "0.0.0.0", "--port", "8000",
            "--max-model-len", "4096", "--gpu-memory-utilization", "0.9", "--api-key", os.environ["VLLM_API_KEY"]]

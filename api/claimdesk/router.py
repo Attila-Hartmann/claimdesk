@@ -45,8 +45,7 @@ def set_canary(challenger: str | None, pct: int, reason: str) -> dict:
 def feedback_stats() -> dict[str, dict]:
     """Field acceptance per model from reviewer feedback objects."""
     out: dict[str, dict] = {}
-    for key in store.keys("feedback/"):
-        fb = store.get_json(key)
+    for fb in store.get_json_many("feedback/"):
         m = out.setdefault(fb["model"], {"docs": 0, "fields": 0, "accepted": 0, "cost_usd": 0.0, "latency_ms": 0})
         m["docs"] += 1
         m["fields"] += fb["fields"]
@@ -67,9 +66,9 @@ def z_test(a_ok: int, a_n: int, b_ok: int, b_n: int) -> float:
     return (b_ok / b_n - a_ok / a_n) / se
 
 
-def decide(apply: bool = True) -> dict:
+def decide(apply: bool = True, stats: dict[str, dict] | None = None) -> dict:
     """Recommendation for the current canary; applied when `apply` and state.auto are both on."""
-    s, stats = state(), feedback_stats()
+    s, stats = state(), stats or feedback_stats()
     ch = s["challenger"]
     if not ch:
         return {"action": "none", "reason": "no challenger in canary"}
