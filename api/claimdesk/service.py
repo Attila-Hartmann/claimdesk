@@ -6,7 +6,9 @@ import uuid
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 
-from claimdesk import classify, extract, fraud, ocr, router, store, validate
+from claimdesk import router, store, validate
+
+# OCR, the classifier, XGBoost and the model clients load on first use: listing claims should not pay for them on a cold start.
 
 
 def _now() -> str:
@@ -25,6 +27,8 @@ def create_claim(files: list[tuple[str, bytes]], *, source: str = "upload", ref:
 
 
 def _process_doc(d: dict, model: str | None) -> None:
+    from claimdesk import classify, extract, ocr
+
     t0 = time.perf_counter()
     d["text"], d["text_method"] = ocr.text_of(store.path_for(d["file"]))
     d["ocr_ms"] = int((time.perf_counter() - t0) * 1000)
@@ -46,6 +50,8 @@ def process(cid: str, model: str | None = None) -> dict:
     c = store.get_json(f"claims/{cid}.json")
     with ThreadPoolExecutor(4) as ex:  # documents are independent: OCR and model calls overlap
         list(ex.map(lambda d: _process_doc(d, model), c["documents"]))
+    from claimdesk import fraud
+
     by_type = {d["type"]: d["fields"] for d in c["documents"] if d.get("fields")}
     c["claim_issues"] = validate.check_claim(by_type)
     c["fraud"] = fraud.score_claim(by_type, c["claim_issues"] + [i for d in c["documents"] for i in d["issues"]])
@@ -59,6 +65,8 @@ def review(cid: str, doc_id: str, fields: dict, reviewer: str, *, simulated: boo
     """Store the reviewer's final fields; every field the model got right counts as accepted for that model."""
     c = store.get_json(f"claims/{cid}.json")
     d = next(x for x in c["documents"] if x["doc_id"] == doc_id)
+    from claimdesk import extract
+
     checks = extract.score(fields, d.get("fields"))
     d["review"] = {"fields": fields, "reviewer": reviewer, "at": _now(), "accepted": sum(checks.values()), "total": len(checks),
                    "corrected": [k for k, ok in checks.items() if not ok], "simulated": simulated}

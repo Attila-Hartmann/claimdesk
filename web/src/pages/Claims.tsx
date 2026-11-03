@@ -1,4 +1,4 @@
-import { Alert, Badge, Group, Paper, SimpleGrid, Stack, Table, Text, Title } from '@mantine/core';
+import { Alert, Badge, Group, Paper, SimpleGrid, Skeleton, Stack, Table, Text, Title } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router';
 
@@ -26,7 +26,7 @@ const STATUS: Record<string, { label: string; color: string }> = {
 };
 
 export function Claims() {
-  const { data, isError } = useQuery({ queryKey: ['claims'], queryFn: api.claims });
+  const { data, isError, isPending } = useQuery({ queryKey: ['claims'], queryFn: api.claims });
   const nav = useNavigate();
   const rows = [...(data ?? [])].sort((a, b) => (b.fraud ?? 0) - (a.fraud ?? 0)); // handlers work the riskiest claims first
   const review = rows.filter((r) => r.status === 'review');
@@ -51,7 +51,7 @@ export function Claims() {
         ].map(([label, n]) => (
           <Paper key={label} p="md" withBorder>
             <Text size="xs" c="dimmed" tt="uppercase" fw={600}>{label}</Text>
-            <Text size="xl" fw={700}>{n}</Text>
+            {isPending ? <Skeleton height={28} width={48} mt={4} /> : <Text size="xl" fw={700}>{n}</Text>}
           </Paper>
         ))}
       </SimpleGrid>
@@ -69,6 +69,9 @@ export function Claims() {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
+            {isPending && Array.from({ length: 6 }, (_, i) => (
+              <Table.Tr key={`s${i}`}>{Array.from({ length: 6 }, (_, j) => <Table.Td key={j}><Skeleton height={14} radius="sm" /></Table.Td>)}</Table.Tr>
+            ))}
             {rows.map((r: ClaimRow) => (
               <Table.Tr key={r.id} style={{ cursor: 'pointer' }} onClick={() => nav(`/claims/${r.id}`)}>
                 <Table.Td>
