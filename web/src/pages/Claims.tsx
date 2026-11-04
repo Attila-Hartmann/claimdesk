@@ -1,4 +1,4 @@
-import { Alert, Badge, Group, Paper, SimpleGrid, Skeleton, Stack, Table, Text, Title } from '@mantine/core';
+import { Alert, Badge, Group, Paper, SimpleGrid, Skeleton, Stack, Table, Text, Title, useMatches } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router';
 
@@ -9,7 +9,7 @@ function Risk({ score }: { score: number | null }) {
   if (score == null) return <Text c="dimmed" size="sm">–</Text>;
   const color = score >= 0.5 ? 'var(--risk)' : score >= 0.2 ? '#d97706' : 'var(--ok)';
   return (
-    <Group gap={8} wrap="nowrap" w={130}>
+    <Group gap={8} wrap="nowrap" w={{ base: 92, sm: 130 }}>
       <div className="riskbar" style={{ flex: 1 }} aria-hidden>
         <span style={{ width: `${Math.max(4, score * 100)}%`, background: color }} />
       </div>
@@ -31,6 +31,8 @@ export function Claims() {
   const rows = [...(data ?? [])].sort((a, b) => (b.fraud ?? 0) - (a.fraud ?? 0)); // handlers work the riskiest claims first
   const review = rows.filter((r) => r.status === 'review');
   const flagged = rows.filter((r) => (r.fraud ?? 0) >= 0.5);
+  const spacing = useMatches({ base: 'xs', sm: 'md' });
+  const wide = { visibleFrom: 'sm' } as const; // phones keep claim, issues and risk; status moves under the claim id
 
   return (
     <Stack gap="lg">
@@ -57,30 +59,31 @@ export function Claims() {
       </SimpleGrid>
       {isError && <Alert color="red">The API is not reachable.</Alert>}
       <Paper withBorder>
-        <Table highlightOnHover verticalSpacing="sm" horizontalSpacing="md">
+        <Table highlightOnHover verticalSpacing="sm" horizontalSpacing={spacing}>
           <Table.Thead>
             <Table.Tr>
               <Table.Th>Claim</Table.Th>
-              <Table.Th>Status</Table.Th>
-              <Table.Th>Documents</Table.Th>
-              <Table.Th>Extracted by</Table.Th>
+              <Table.Th {...wide}>Status</Table.Th>
+              <Table.Th {...wide}>Documents</Table.Th>
+              <Table.Th {...wide}>Extracted by</Table.Th>
               <Table.Th>Rule issues</Table.Th>
               <Table.Th>Fraud risk</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
             {isPending && Array.from({ length: 6 }, (_, i) => (
-              <Table.Tr key={`s${i}`}>{Array.from({ length: 6 }, (_, j) => <Table.Td key={j}><Skeleton height={14} radius="sm" /></Table.Td>)}</Table.Tr>
+              <Table.Tr key={`s${i}`}>{Array.from({ length: 6 }, (_, j) => <Table.Td key={j} visibleFrom={j && j < 4 ? 'sm' : undefined}><Skeleton height={14} radius="sm" /></Table.Td>)}</Table.Tr>
             ))}
             {rows.map((r: ClaimRow) => (
               <Table.Tr key={r.id} style={{ cursor: 'pointer' }} onClick={() => nav(`/claims/${r.id}`)}>
                 <Table.Td>
                   <Text fw={600} className="mono" size="sm">{r.ref ?? r.id}</Text>
                   <Text size="xs" c="dimmed">{r.received_at.slice(0, 10)}</Text>
+                  <Badge hiddenFrom="sm" mt={4} size="sm" variant="light" color={STATUS[r.status]?.color}>{STATUS[r.status]?.label ?? r.status}</Badge>
                 </Table.Td>
-                <Table.Td><Badge variant="light" color={STATUS[r.status]?.color}>{STATUS[r.status]?.label ?? r.status}</Badge></Table.Td>
-                <Table.Td>{r.docs}</Table.Td>
-                <Table.Td>
+                <Table.Td {...wide}><Badge variant="light" color={STATUS[r.status]?.color}>{STATUS[r.status]?.label ?? r.status}</Badge></Table.Td>
+                <Table.Td {...wide}>{r.docs}</Table.Td>
+                <Table.Td {...wide}>
                   <Group gap={4}>
                     {r.models.map((m) => (
                       <Badge key={m} variant={m.startsWith('claimdesk-') ? 'filled' : 'outline'} color={m.startsWith('claimdesk-') ? 'violet' : 'gray'}>

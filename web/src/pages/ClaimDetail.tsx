@@ -1,4 +1,4 @@
-import { Accordion, Alert, Anchor, Badge, Button, Code, Grid, Group, Paper, Stack, Switch, Table, Tabs, Text, TextInput, Title } from '@mantine/core';
+import { Accordion, Alert, Anchor, Badge, Box, Button, Code, Grid, Group, Paper, Stack, Switch, Table, Tabs, Text, TextInput, Title } from '@mantine/core';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
@@ -29,6 +29,7 @@ function FieldEditor({ value, onChange, issues, readOnly }: { value: Fields; onC
           return (
             <div key={k}>
               <Text size="sm" fw={500} mb={4}>{label}</Text>
+              <Table.ScrollContainer minWidth={420} type="native">
               <Table withTableBorder withColumnBorders fz="xs">
                 <Table.Thead><Table.Tr>{cols.map((c) => <Table.Th key={c}>{FIELD[c] ?? c.replaceAll('_', ' ')}</Table.Th>)}</Table.Tr></Table.Thead>
                 <Table.Tbody>
@@ -45,6 +46,7 @@ function FieldEditor({ value, onChange, issues, readOnly }: { value: Fields; onC
                   ))}
                 </Table.Tbody>
               </Table>
+              </Table.ScrollContainer>
             </div>
           );
         }
@@ -86,7 +88,13 @@ function DocumentPanel({ cid, doc }: { cid: string; doc: Doc }) {
     <Grid gap="lg">
       <Grid.Col span={{ base: 12, md: 6 }}>
         <div className="doc-frame">
-          {doc.file.endsWith('.pdf') ? <iframe src={`${url}#toolbar=0&navpanes=0&view=FitH`} title={doc.name} /> : <img src={url} alt={`Scan of ${doc.name}`} />}
+          {doc.file.endsWith('.pdf') ? (
+            <>
+              <Box visibleFrom="md"><iframe src={`${url}#toolbar=0&navpanes=0&view=FitH`} title={doc.name} /></Box>
+              {/* mobile browsers don't render PDFs inside iframes */}
+              <Button hiddenFrom="md" component="a" href={url} target="_blank" rel="noopener" variant="light" fullWidth radius={0}>Open the PDF</Button>
+            </>
+          ) : <img src={url} alt={`Scan of ${doc.name}`} />}
         </div>
         <Accordion mt="sm" variant="contained">
           <Accordion.Item value="text">

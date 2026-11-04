@@ -15,7 +15,7 @@ export function App() {
       <header className="bar">
         <Container size="xl" py={10}>
           <Group justify="space-between" wrap="nowrap">
-            <Group gap="xl" wrap="nowrap">
+            <Group gap={6} style={{ columnGap: 'var(--mantine-spacing-xl)' }}>
               <Group gap={10} wrap="nowrap">
                 <img src="favicon.svg" width={28} height={28} alt="" />
                 <Text fw={700} size="lg">Claimdesk</Text>
