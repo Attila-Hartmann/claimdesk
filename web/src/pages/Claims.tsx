@@ -1,8 +1,8 @@
-import { Alert, Badge, Group, Paper, SimpleGrid, Skeleton, Stack, Table, Text, Title, useMatches } from '@mantine/core';
-import { useQuery } from '@tanstack/react-query';
+import { Alert, Badge, Button, FileButton, Group, Paper, SimpleGrid, Skeleton, Stack, Table, Text, Title, useMatches } from '@mantine/core';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router';
 
-import { api, type ClaimRow } from '../api';
+import { api, type ClaimRow, DEMO } from '../api';
 import { modelName, pct } from '../labels';
 
 function Risk({ score }: { score: number | null }) {
@@ -24,6 +24,36 @@ const STATUS: Record<string, { label: string; color: string }> = {
   processing: { label: 'Processing', color: 'blue' },
   new: { label: 'New', color: 'gray' },
 };
+
+const MAX_BYTES = 4_000_000; // the API's limit: Lambda caps request bodies
+
+function Upload() {
+  const nav = useNavigate();
+  const send = useMutation({
+    mutationFn: (files: File[]) => {
+      if (files.reduce((s, f) => s + f.size, 0) > MAX_BYTES) throw new Error('Up to 4 MB in total, please.');
+      return api.upload(files);
+    },
+    onSuccess: (c) => nav(`/claims/${c.id}`),
+  });
+  return (
+    <Paper withBorder p="md">
+      <Group justify="space-between" gap="sm">
+        <div style={{ flex: '1 1 320px' }}>
+          <Text fw={600}>Try it with your own documents</Text>
+          <Text size="sm" c="dimmed">
+            Up to 5 PDFs or photos of a claim form, repair invoice or accident statement. Use blank or made-up documents, never real
+            personal data. Your claim is visible only through its link and is deleted after 24 hours.
+          </Text>
+        </div>
+        <FileButton onChange={(f) => f.length && send.mutate(f.slice(0, 5))} accept="application/pdf,image/png,image/jpeg" multiple>
+          {(props) => <Button {...props} loading={send.isPending}>Upload documents</Button>}
+        </FileButton>
+      </Group>
+      {send.isError && <Alert color="red" mt="sm">{send.error.message}</Alert>}
+    </Paper>
+  );
+}
 
 export function Claims() {
   const { data, isError, isPending } = useQuery({ queryKey: ['claims'], queryFn: api.claims });
@@ -57,6 +87,7 @@ export function Claims() {
           </Paper>
         ))}
       </SimpleGrid>
+      {!DEMO && <Upload />}
       {isError && <Alert color="red">The API is not reachable.</Alert>}
       <Paper withBorder>
         <Table highlightOnHover verticalSpacing="sm" horizontalSpacing={spacing}>

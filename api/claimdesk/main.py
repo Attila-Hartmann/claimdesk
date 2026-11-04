@@ -50,8 +50,9 @@ async def upload(files: list[UploadFile]) -> dict:
     if not 1 <= len(files) <= 5:
         raise HTTPException(400, "send 1 to 5 files")
     blobs = [(f.filename or "doc.pdf", await f.read()) for f in files]
-    if any(len(b) > 5_000_000 or not n.lower().endswith((".pdf", ".png", ".jpg", ".jpeg")) for n, b in blobs):
-        raise HTTPException(400, "PDF or image files up to 5 MB")
+    # Lambda function URLs cap a request at 6 MB, and binary bodies arrive base64-encoded
+    if sum(len(b) for _, b in blobs) > 4_000_000 or any(not n.lower().endswith((".pdf", ".png", ".jpg", ".jpeg")) for n, _ in blobs):
+        raise HTTPException(400, "PDF, PNG or JPG files, 4 MB in total")
     if service.uploads_today() >= settings().daily_upload_limit:
         raise HTTPException(429, "Daily demo limit reached. Explore the processed claims, or try again tomorrow.")
     cid = service.create_claim(blobs)
@@ -59,21 +60,22 @@ async def upload(files: list[UploadFile]) -> dict:
         import boto3
 
         boto3.client("sqs").send_message(QueueUrl=q, MessageBody=json.dumps({"claim_id": cid}))
-        return store.get_json(f"claims/{cid}.json")
+        return store.get_json(service.claim_key(cid))
     return service.process(cid)
 
 
 @app.get("/api/claims/{cid}")
 def claim(cid: str) -> dict:
-    c = store.get_json(f"claims/{cid}.json")
+    c = store.get_json(service.claim_key(cid))
     if not c:
         raise HTTPException(404, "claim not found")
     return c
 
 
 @app.get("/api/files/{cid}/{name}")
+@app.get("/api/uploads/files/{cid}/{name}")
 def file(cid: str, name: str) -> Response:
-    body = store.get(f"files/{cid}/{name}")
+    body = store.get(f"{service.prefix(cid)}files/{cid}/{name}")
     if body is None:
         raise HTTPException(404, "file not found")
     return Response(body, media_type="application/pdf" if name.endswith(".pdf") else "image/png")

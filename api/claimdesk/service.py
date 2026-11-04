@@ -15,14 +15,23 @@ def _now() -> str:
     return datetime.now(UTC).isoformat(timespec="seconds")
 
 
+def prefix(cid: str) -> str:
+    """Visitor uploads live under uploads/: never listed, readable only by their unguessable id, expired by S3 after a day."""
+    return "uploads/" if cid.startswith("UP-") else ""
+
+
+def claim_key(cid: str) -> str:
+    return f"{prefix(cid)}claims/{cid}.json"
+
+
 def create_claim(files: list[tuple[str, bytes]], *, source: str = "upload", ref: str | None = None) -> str:
-    cid = f"CL-{uuid.uuid4().hex[:8].upper()}"
+    cid = f"UP-{uuid.uuid4().hex[:16].upper()}" if source == "upload" else f"CL-{uuid.uuid4().hex[:8].upper()}"
     docs = []
     for i, (name, body) in enumerate(files, 1):
-        key = f"files/{cid}/{i}{name[name.rfind('.'):].lower()}"
+        key = f"{prefix(cid)}files/{cid}/{i}{name[name.rfind('.'):].lower()}"
         store.put(key, body, "application/pdf" if name.lower().endswith(".pdf") else "image/png")
         docs.append({"doc_id": f"{cid}-{i}", "file": key, "name": name})
-    store.put_json(f"claims/{cid}.json", {"id": cid, "ref": ref, "source": source, "received_at": _now(), "status": "new", "documents": docs})
+    store.put_json(claim_key(cid), {"id": cid, "ref": ref, "source": source, "received_at": _now(), "status": "new", "documents": docs})
     return cid
 
 
@@ -47,7 +56,9 @@ def _process_doc(d: dict, model: str | None) -> None:
 
 
 def process(cid: str, model: str | None = None) -> dict:
-    c = store.get_json(f"claims/{cid}.json")
+    c = store.get_json(claim_key(cid))
+    if prefix(cid) and not model:  # visitor uploads: frontier API only, so they never wake the GPU or count as canary traffic
+        model = "champion"
     with ThreadPoolExecutor(4) as ex:  # documents are independent: OCR and model calls overlap
         list(ex.map(lambda d: _process_doc(d, model), c["documents"]))
     from claimdesk import fraud
@@ -57,13 +68,13 @@ def process(cid: str, model: str | None = None) -> dict:
     c["fraud"] = fraud.score_claim(by_type, c["claim_issues"] + [i for d in c["documents"] for i in d["issues"]])
     c["status"] = "review"
     c["processed_at"] = _now()
-    store.put_json(f"claims/{cid}.json", c)
+    store.put_json(claim_key(cid), c)
     return c
 
 
 def review(cid: str, doc_id: str, fields: dict, reviewer: str, *, simulated: bool = False) -> dict:
     """Store the reviewer's final fields; every field the model got right counts as accepted for that model."""
-    c = store.get_json(f"claims/{cid}.json")
+    c = store.get_json(claim_key(cid))
     d = next(x for x in c["documents"] if x["doc_id"] == doc_id)
     from claimdesk import extract
 
@@ -72,7 +83,7 @@ def review(cid: str, doc_id: str, fields: dict, reviewer: str, *, simulated: boo
                    "corrected": [k for k, ok in checks.items() if not ok], "simulated": simulated}
     if all("review" in x for x in c["documents"]):
         c["status"] = "approved"
-    store.put_json(f"claims/{cid}.json", c)
+    store.put_json(claim_key(cid), c)
     store.put_json(f"feedback/{doc_id}.json", {"model": d["model"], "fields": len(checks), "accepted": sum(checks.values()),
                                                "cost_usd": d.get("cost_usd", 0.0), "latency_ms": d.get("latency_ms", 0), "type": d["type"],
                                                "simulated": simulated})
@@ -81,7 +92,7 @@ def review(cid: str, doc_id: str, fields: dict, reviewer: str, *, simulated: boo
 
 def uploads_today() -> int:
     today = datetime.now(UTC).date().isoformat()
-    return sum(1 for c in store.get_json_many("claims/") if c["source"] == "upload" and c["received_at"].startswith(today))
+    return sum(1 for c in store.get_json_many("uploads/claims/") if c["received_at"].startswith(today))
 
 
 def list_claims() -> list[dict]:

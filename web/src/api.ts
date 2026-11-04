@@ -109,5 +109,12 @@ export const api = {
   evals: () => get<Record<string, EvalSummary>>('evals'),
   review: (cid: string, docId: string, fields: Record<string, unknown>) => post(`claims/${cid}/documents/${docId}/review`, { fields, reviewer: 'demo-reviewer' }),
   setCanary: (challenger: string | null, pct: number) => post<RouterState>('rollout', { challenger, pct, reason: 'set in the UI' }),
+  upload: async (files: File[]) => {
+    const body = new FormData();
+    files.forEach((f) => body.append('files', f));
+    const r = await fetch('/api/claims', { method: 'POST', body });
+    if (!r.ok) throw new Error(((await r.json().catch(() => null)) as { detail?: string } | null)?.detail ?? `Upload failed (${r.status})`);
+    return r.json() as Promise<Claim>;
+  },
   fileUrl: (key: string) => (DEMO ? `demo/${key}` : `/api/${key}`),
 };

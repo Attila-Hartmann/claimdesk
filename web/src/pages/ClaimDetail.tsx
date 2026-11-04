@@ -1,9 +1,9 @@
-import { Accordion, Alert, Anchor, Badge, Box, Button, Code, Grid, Group, Paper, Stack, Switch, Table, Tabs, Text, TextInput, Title } from '@mantine/core';
+import { Accordion, Alert, Anchor, Badge, Box, Button, Code, Grid, Group, Loader, Paper, Stack, Switch, Table, Tabs, Text, TextInput, Title } from '@mantine/core';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 
-import { api, type Doc, type Issue, useReadonly } from '../api';
+import { api, type Claim, type Doc, type Issue, useReadonly } from '../api';
 import { DOC_TYPE, FIELD, modelName, pct, usd } from '../labels';
 
 type Fields = Record<string, unknown>;
@@ -141,22 +141,48 @@ function DocumentPanel({ cid, doc }: { cid: string; doc: Doc }) {
   );
 }
 
+/** Uploads are processed asynchronously; a run that never finishes stops the polling after five minutes. */
+function pending(c: Claim): 'running' | 'stalled' | null {
+  if (c.status !== 'new' && c.status !== 'processing') return null;
+  return Date.now() - Date.parse(c.received_at) < 300_000 ? 'running' : 'stalled';
+}
+
 export function ClaimDetail() {
   const { id = '' } = useParams();
-  const { data: c, isError } = useQuery({ queryKey: ['claim', id], queryFn: () => api.claim(id) });
-  if (isError) return <Alert color="red">Claim not found.</Alert>;
+  const { data: c, isError } = useQuery({
+    queryKey: ['claim', id],
+    queryFn: () => api.claim(id),
+    refetchInterval: (q) => (q.state.data && pending(q.state.data) === 'running' ? 3000 : false), // the SQS worker is processing it
+  });
+  if (isError) return <Alert color="red">Claim not found. Uploaded claims are deleted after 24 hours.</Alert>;
   if (!c) return <Text c="dimmed">Loading…</Text>;
   const fraud = c.fraud?.score;
+  const upload = c.id.startsWith('UP-');
+  const state = pending(c);
 
   return (
     <Stack gap="lg">
       <Anchor component={Link} to="/" size="sm">Back to claims</Anchor>
+      {upload && (
+        <Alert color="blue" title="Your uploaded claim">
+          Only this link opens it, and it is deleted 24 hours after upload. Uploads are extracted by the frontier API; the fine-tuned
+          canary only serves the handler queue.
+        </Alert>
+      )}
+      {state && (
+        <Alert color={state === 'running' ? 'blue' : 'red'} icon={state === 'running' ? <Loader size="xs" /> : undefined}
+          title={state === 'running' ? 'Processing' : 'This is taking much longer than usual'}>
+          {state === 'running'
+            ? 'Reading the documents (OCR for scans), classifying them, extracting the fields, checking the rules and scoring fraud risk. Usually under a minute.'
+            : 'The run has probably failed. Try again with sharper scans or digital PDFs.'}
+        </Alert>
+      )}
       <Group justify="space-between" align="flex-start">
         <div>
-          <Title order={1} className="mono">{c.ref ?? c.id}</Title>
+          <Title order={1} className={upload ? undefined : 'mono'}>{upload ? 'Your claim' : c.ref ?? c.id}</Title>
           <Text c="dimmed" size="sm">{c.documents.length} documents · received {c.received_at.slice(0, 16).replace('T', ' ')}</Text>
         </div>
-        <Paper p="md" withBorder miw={320}>
+        {!state && <Paper p="md" withBorder miw={320}>
           <Group justify="space-between">
             <Text fw={600}>Fraud risk</Text>
             <Text fw={700} size="xl" c={fraud == null ? 'dimmed' : fraud >= 0.5 ? 'var(--risk)' : fraud >= 0.2 ? '#d97706' : 'var(--ok)'}>
@@ -172,14 +198,14 @@ export function ClaimDetail() {
             ))}
             <Text size="xs" c="dimmed" mt={4}>Gradient-boosted model with SHAP explanations. It prioritises investigation; it never rejects a claim.</Text>
           </Stack>
-        </Paper>
+        </Paper>}
       </Group>
       {!!c.claim_issues?.length && (
         <Alert color="orange" title="Documents disagree with each other">
           {c.claim_issues.map((i) => <Text key={i.code} size="sm">{i.message}</Text>)}
         </Alert>
       )}
-      <Paper withBorder p="md">
+      {!state && <Paper withBorder p="md">
         <Tabs defaultValue={c.documents[0]?.doc_id}>
           <Tabs.List mb="md">
             {c.documents.map((d) => (
@@ -192,7 +218,7 @@ export function ClaimDetail() {
             <Tabs.Panel key={d.doc_id} value={d.doc_id}><DocumentPanel cid={c.id} doc={d} /></Tabs.Panel>
           ))}
         </Tabs>
-      </Paper>
+      </Paper>}
     </Stack>
   );
 }

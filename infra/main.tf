@@ -54,6 +54,16 @@ resource "aws_s3_bucket_public_access_block" "store" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+# Visitor uploads may contain personal data despite the warning: S3 deletes them after a day.
+resource "aws_s3_bucket_lifecycle_configuration" "store" {
+  bucket = aws_s3_bucket.store.id
+  rule {
+    id     = "expire-visitor-uploads"
+    status = "Enabled"
+    filter { prefix = "uploads/" }
+    expiration { days = 1 }
+  }
+}
 
 resource "aws_sqs_queue" "dlq" {
   name                      = "${local.name}-dlq"
