@@ -13,17 +13,17 @@ function EvalTable({ evals }: { evals: Record<string, EvalSummary> }) {
   const rows = Object.values(evals).sort((a, b) => (a.endpoint === 'champion' ? -1 : b.endpoint === 'champion' ? 1 : a.model.localeCompare(b.model)));
   const best = Math.max(...rows.map((r) => r.field_accuracy));
   return (
-    <Table.ScrollContainer minWidth={520} type="native">
-    <Table striped verticalSpacing="sm" fz="sm">
+    <Table.ScrollContainer minWidth={300} type="native">
+    <Table striped verticalSpacing="sm" horizontalSpacing={6} fz="sm">
       <Table.Thead>
         <Table.Tr>
           <Table.Th>Model</Table.Th>
           <Table.Th ta="right">Fields correct</Table.Th>
-          <Table.Th ta="right">Documents fully correct</Table.Th>
+          <Table.Th ta="right">Docs fully correct</Table.Th>
           {GROUPS.map(([k, l]) => <Table.Th key={k} ta="right" visibleFrom="md">{l}</Table.Th>)}
-          <Table.Th ta="right">Input tokens / doc</Table.Th>
+          <Table.Th ta="right" visibleFrom="sm">Input tokens / doc</Table.Th>
           <Table.Th ta="right">Cost / 1,000 docs</Table.Th>
-          <Table.Th ta="right">Median latency</Table.Th>
+          <Table.Th ta="right" visibleFrom="sm">Median latency</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
@@ -31,14 +31,15 @@ function EvalTable({ evals }: { evals: Record<string, EvalSummary> }) {
           <Table.Tr key={r.model}>
             <Table.Td>
               <Text fw={600} size="sm">{modelName(r.endpoint === 'champion' ? 'champion' : r.model)}</Text>
-              <Text size="xs" c="dimmed" className="mono">{r.model}</Text>
+              <Text size="xs" c="dimmed" className="mono" visibleFrom="sm">{r.model}</Text>
+              <Text size="xs" c="dimmed" className="mono" hiddenFrom="sm">{r.model.replace(/^eu\.anthropic\.|-\d{8}-v\d:\d$/g, '')}</Text>
             </Table.Td>
             <Table.Td ta="right" fw={r.field_accuracy === best ? 700 : 400}>{pct(r.field_accuracy)}</Table.Td>
             <Table.Td ta="right">{pct(r.doc_exact)}</Table.Td>
             {GROUPS.map(([k]) => <Table.Td key={k} ta="right" visibleFrom="md">{pct(r.by_group[k])}</Table.Td>)}
-            <Table.Td ta="right">{Math.round(r.tokens_in_avg)}</Table.Td>
+            <Table.Td ta="right" visibleFrom="sm">{Math.round(r.tokens_in_avg)}</Table.Td>
             <Table.Td ta="right">{r.gpu_cost_per_1k_docs_usd == null && !r.cost_per_1k_docs_usd ? '–' : usd(r.gpu_cost_per_1k_docs_usd ?? r.cost_per_1k_docs_usd)}{r.gpu_cost_per_1k_docs_usd != null && <Text span size="xs" c="dimmed"> GPU</Text>}</Table.Td>
-            <Table.Td ta="right">{r.p50_ms ? `${(r.p50_ms / 1000).toFixed(1)} s` : '–'}</Table.Td>
+            <Table.Td ta="right" visibleFrom="sm">{r.p50_ms ? `${(r.p50_ms / 1000).toFixed(1)} s` : '–'}</Table.Td>
           </Table.Tr>
         ))}
       </Table.Tbody>
